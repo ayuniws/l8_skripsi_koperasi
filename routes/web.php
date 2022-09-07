@@ -76,3 +76,6 @@ Route::get('/admin/create', function () {
 Route::get('/admin/index', function () {
     return view('admin.index');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
