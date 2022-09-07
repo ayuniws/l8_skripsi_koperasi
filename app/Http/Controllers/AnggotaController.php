@@ -27,7 +27,8 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-       
+        return view('anggota.create');
+
     }
 
     /**
@@ -103,7 +104,7 @@ class AnggotaController extends Controller
                     'level' => 'required',
                     'alamat' => 'required',
                 ]);
-         
+
                 //dd($anggotaModel);
                      AnggotaModel::where('id', $anggotaModel)->update([
                         'nrp' => $request['nrp'],
@@ -114,7 +115,7 @@ class AnggotaController extends Controller
                         'level' => $request['level'],
                         'alamat' => $request['alamat'],
                         ]);
-                    return redirect()->route('anggota.index'); 
+                    return redirect()->route('anggota.index');
     }
 
     /**
