@@ -24,6 +24,26 @@ class AnggotaController extends Controller
 
     }
 
+    public function dashboardKetua(){
+        $user = User::all();
+        $total_user = User::count();
+        $total_active_user = User::where('status', 'enabled')->count();
+        $total_inactive_user = User::where('status', 'disabled')->count();
+        $total_admin = User::where('level', 'admin')->count();
+        return view('ketua.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+    }
+
+    public function dashboard()
+    {
+        $user = User::all();
+        $total_user = User::count();
+        $total_active_user = User::where('status', 'enabled')->count();
+        $total_inactive_user = User::where('status', 'disabled')->count();
+        $total_admin = User::where('level', 'admin')->count();
+        return view('anggota.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
