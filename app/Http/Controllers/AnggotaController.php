@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\AnggotaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 
 class AnggotaController extends Controller
 {
@@ -41,21 +45,30 @@ class AnggotaController extends Controller
     {
         $request->validate([
             'nrp' => 'required',
-            'name' => 'required',
-            'telp' => 'required',
+            'nama_anggota' => 'required',
+            'alamat_anggota' => 'required',
+            'tgl_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'no_telepon' => 'required',
             'email' => 'required',
-            'kelamin' => 'required',
+            'jenis_kelamin' => 'required',
             'level' => 'required',
-            'alamat' => 'required',
+            'bagian' => 'required',
+            'jabatan' => 'required',
 ]);
         AnggotaModel::create([
             'nrp' => $request['nrp'],
-            'name' => $request['name'],
-            'telp' => $request['telp'],
+            'nama_anggota' => $request['name'],
+            'no_telepon' => $request['telp'],
             'email' => $request['email'],
-            'kelamin' => $request['kelamin'],
+            'jenis_kelamin' => $request['kelamin'],
             'level' => $request['level'],
-            'alamat' => $request['alamat'],
+            'jabatan' => $request['jabatan'],
+            'bagian' => $request['bagian'],
+            'status' => 'disabled',
+            'alamat_anggota' => $request['alamat_anggota'],
+            'password' => Hash::make($request['password']),
+
         ]);
         //Alert::warning('Tambah pengguna berhasil !');
         return redirect()->route('anggota.index');

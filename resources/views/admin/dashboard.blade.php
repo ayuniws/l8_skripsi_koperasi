@@ -139,13 +139,13 @@
                         @foreach ($users as $data )
                           <tr>
                             <td>{{ $data->nrp }}</td>
-                            <td>{{ $data->name }}</td>
+                            <td>{{ ucwords($data->nama_anggota) }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->level }}</td>
                             <td>{{ $data->status }}</td>
                             <td class="text-center">
                               <form action="{{ route('pengguna.destroy',$data->id) }}" method="POST">
-                                @csrf 
+                                @csrf
                                 {{-- @method('DELETE') --}}
                                 <a class="btn btn-info btn-sm" href="{{ route('admin.show',$data->id) }}"><i class="la la-search"></i></a>
                                   <a class="btn btn-primary btn-sm" href="{{ route('pengguna.edit',$data->id) }}"><i class="la la-edit"></i></a>

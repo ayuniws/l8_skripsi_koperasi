@@ -53,16 +53,16 @@
                           @foreach ($anggotas as $data )
                             <tr>
                               <td>{{ $data->nrp }}</td>
-                              <td>{{ $data->nama_anggota }}</td>
-                              <td>{{ $data->alamat_anggota }}</td>
+                              <td>{{ ucwords($data->nama_anggota) }}</td>
+                              <td>{{ ucfirst($data->alamat_anggota) }}</td>
                               <td>{{ $data->tgl_lahir }}</td>
-                              <td>{{ $data->tempat_lahir }}</td>
-                              <td>{{ $data->jenis_kelamin }}</td>
+                              <td>{{ ucwords($data->tempat_lahir) }}</td>
+                              <td>{{ ucwords($data->jenis_kelamin) }}</td>
                               <td>{{ $data->no_telepon }}</td>
                               <td>{{ $data->email }}</td>
-                              <td>{{ $data->jabatan }}</td>
-                              <td>{{ $data->bagian }}</td>
-                              <td>{{ $data->level }}</td>
+                              <td>{{ ucwords($data->jabatan) }}</td>
+                              <td>{{ ucwords($data->bagian) }}</td>
+                              <td>{{ ucwords($data->level) }}</td>
                               <td class="text-center">
                                 <form action="{{ route('anggota.destroy',$data->id) }}" method="POST">
                                   <a class="btn btn-info btn-sm" href="{{ route('anggota.show',$data->id) }}"><i class="la la-search"></i></a>

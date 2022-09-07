@@ -26,6 +26,8 @@ Route::get('/home', function () {
 
 Auth::routes();
 
+Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
 // Admin
 Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
 Route::get('/admin/dashboard', [App\Http\Controllers\PenggunaController::class, 'dashboard'])->name('admin.dashboard');

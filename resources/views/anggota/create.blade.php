@@ -58,6 +58,39 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
+                              <label for="projectinput1">Tanggal Lahir</label>
+                              <input type="date" id="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput2">Tempat Lahir</label>
+                              <input type="text" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" name="tempat_lahir">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput1">Jabatan</label>
+                              <select id="jabatan" name="jabatan" class="form-control">
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput2">Bagian</label>
+                              <select id="bagian" name="bagian" class="form-control">
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                              </select></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
                               <label for="projectinput3">Kelamin</label>
                               <select id="kelamin" name="kelamin" class="form-control">
                                 <option value="L">Laki-Laki</option>
