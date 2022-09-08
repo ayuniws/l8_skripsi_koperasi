@@ -5,9 +5,9 @@
         <span data-i18n="nav.category.layouts">Menu Anggota</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
         data-placement="right" data-original-title="Layouts"></i>
       </li>
-      <li class=" nav-item"><a href="{{ route('anggota.dashboard') }}"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a></li>
-      <li class=" nav-item"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.templates.main">Profile</span></a></li>
-      <li class=" nav-item"><a href="index.html"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
+      <li class="active"><a href="{{ route('anggota.dashboard') }}"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a></li>
+      <li class="active"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.templates.main">Profile</span></a></li>
+      <li class="active"><a href="#"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">Lihat Info Simpanan</a>
           </li>
@@ -15,7 +15,7 @@
           </li>
         </ul>
       </li>
-      <li class=" nav-item"><a href="index.html"><i class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.dash.main">Histori</span></a>
+      <li class="active"><a href="#"><i class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.dash.main">Histori</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
