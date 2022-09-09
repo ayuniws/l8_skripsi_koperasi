@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaControllers;
 use App\http\Controllers\SimpananController;
 use App\http\Controllers\PinjamanController;
+use App\http\Controllers\BagianController;
+use App\http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,10 @@ Route::get('/ketua/{pengguna}/show', [App\Http\Controllers\PenggunaController::c
 Route::get('/ketua/dashboard', [App\Http\Controllers\AnggotaController::class, 'dashboardKetua'])->name('ketua.dashboard');
 Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'update'])->name('anggota.update');
 Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
+//Jabatan
+Route::resource('jabatan',JabatanController::class);
+//Bagian
+Route::resource('bagian',BagianController::class);
 //Simpanan
 Route::resource('simpanan',SimpananController::class);
 //Pinjaman
