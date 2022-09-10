@@ -41,9 +41,9 @@
       </li>
       <li class="active"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="simpanan" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
+          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
-          <li><a class="menu-item" href="pinjaman" data-i18n="nav.dash.crypto">Transaksi Pinjaman</a>
+          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>
           </li>
         </ul>
       </li>

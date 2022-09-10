@@ -69,30 +69,4 @@ Route::resource('pinjaman',PinjamanController::class);
 
 //Route::resource('sisw',SiswaControllers::class);
 
-Route::get('/crud/create', function () {
-    return view('crud.create');
-});
 
-Route::get('/crud/index', function () {
-    return view('crud.index');
-});
-
-
-Route::get('/user/index', function () {
-    return view('user.index');
-});
-
-Route::get('/user/create', function () {
-    return view('user.create');
-})->name('user.create');
-
-Route::get('/admin/create', function () {
-    return view('admin.create');
-});
-
-Route::get('/admin/index', function () {
-    return view('admin.index');
-});
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

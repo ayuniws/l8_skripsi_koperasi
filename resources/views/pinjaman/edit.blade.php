@@ -30,13 +30,13 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">No</label>
-                                        <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ pinjaman->no }}">
+                                        <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ $pinjaman->no }}">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Tanggal</label>
-                                          <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal" value="{{ pinjaman->tanggal }}">
+                                          <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal" value="{{ $pinjaman->tanggal }}">
                                       </div>
                                     </div>
                                   </div>
@@ -44,13 +44,13 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Anggota</label>
-                                        <input type="text" id="nrp" class="form-control" placeholder="Anggota" name="nrp" value="{{ pinjaman->nrp }}">
+                                        <input type="text" id="nrp" class="form-control" placeholder="Anggota" name="nrp" value="{{ $pinjaman->nrp }}">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Jumlah</label>
-                                          <input type="date" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah" value="{{ pinjaman->jumlah }}">
+                                          <input type="text" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah" value="{{ $pinjaman->jumlah }}">
                                       </div>
                                     </div>
                                   </div>
@@ -58,13 +58,13 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Angsuran</label>
-                                        <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran" value="{{ pinjaman->angsuran }}">
+                                        <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran" value="{{ $pinjaman->angsuran }}">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Keterangan</label>
-                                          <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ pinjaman->keterangan }}">
+                                          <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ $pinjaman->keterangan }}">
                                       </div>
                                     </div>
                                   </div>
