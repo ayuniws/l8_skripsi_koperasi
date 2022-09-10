@@ -6,6 +6,7 @@ use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
 use App\Helpers\AutoNumber;
 use App\Models\AnggotaModel;
+use Illuminate\Support\Facades\Auth;
 
 class PinjamanController extends Controller
 {
@@ -27,8 +28,9 @@ class PinjamanController extends Controller
      */
     public function create()
     {
+        $no = AutoNumber::getPinjamanAutoNo();
         $anggota=AnggotaModel::all();
-        return view('pinjaman.create',compact('anggota'));
+        return view('pinjaman.create',compact(['anggota','no']));
     }
 
     /**
@@ -40,9 +42,22 @@ class PinjamanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_jabatan' => 'required',
-            'nama_jabatan' => 'required',
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
+            'angsuran' => 'required',
         ]);
+        PinjamanModel::create([
+            'no' => $request['no'],
+            'tanggal' => $request['tanggal'],
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'angsuran' => $request['angsuran'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->nrp,
+            ]);
+        return redirect()->route('jabatan.index');
     }
 
     /**
@@ -64,7 +79,8 @@ class PinjamanController extends Controller
      */
     public function edit(PinjamanModel $pinjaman)
     {
-        //
+        //dd($pinjaman->id);
+        return view('pinjaman.edit',compact('pinjaman'));
     }
 
     /**
@@ -76,7 +92,25 @@ class PinjamanController extends Controller
      */
     public function update(Request $request, PinjamanModel $pinjaman)
     {
-        //
+        $request->validate([
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $pinjaman->update($request->all());
+         PinjamanModel::where('id',$request['id'])->update([
+            'no' => $request['no'],
+            'tanggal' => $request['tanggal'],
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'angsuran' => $request['angsuran'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->nrp,
+        ]);
+        return redirect()->route('pinjaman.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -87,6 +121,7 @@ class PinjamanController extends Controller
      */
     public function destroy(PinjamanModel $pinjaman)
     {
-        //
+        $pinjaman->delete();
+        return redirect()->route('pinjaman.index')->with('Succes','Data Berhasil di Hapus');
     }
 }

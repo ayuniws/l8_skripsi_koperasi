@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AnggotaModel;
 use App\Models\SimpananModel;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -41,10 +42,20 @@ class SimpananController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_jabatan' => 'required',
-            'nama_jabatan' => 'required',
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
         ]);
-
+        SimpananModel::create([
+            'no' => $request['no'],
+            'tanggal' => $request['tanggal'],
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->nrp,
+            ]);
+        return redirect()->route('jabatan.index');
     }
 
     /**
@@ -66,7 +77,8 @@ class SimpananController extends Controller
      */
     public function edit(SimpananModel $simpanan)
     {
-        //
+        //dd($simpanan->id);
+        return view('simpanan.edit',compact('simpanan'));
     }
 
     /**
@@ -78,7 +90,24 @@ class SimpananController extends Controller
      */
     public function update(Request $request, SimpananModel $simpanan)
     {
-        //
+        $request->validate([
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $simpanan->update($request->all());
+         SimpananModel::where('id',$request['id'])->update([
+            'no' => $request['no'],
+            'tanggal' => $request['tanggal'],
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->nrp,
+        ]);
+        return redirect()->route('simpanan.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -89,6 +118,7 @@ class SimpananController extends Controller
      */
     public function destroy(SimpananModel $simpanan)
     {
-        //
+        $simpanan->delete();
+        return redirect()->route('simpanan.index')->with('Succes','Data Berhasil di Hapus');
     }
 }

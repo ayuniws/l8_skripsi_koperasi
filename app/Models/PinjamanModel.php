@@ -14,10 +14,11 @@ class PinjamanModel extends Model
 
     protected $fillable = [
         'no',
-        'tgl',
+        'tanggal',
         'nrp',
-        'jumlah_pinjaman',
+        'jumlah',
         'angsuran',
         'keterangan',
+        'admin',
     ];
 }
