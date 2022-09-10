@@ -26,6 +26,19 @@ class PinjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getListPinjaman(){
+
+        $diajukan = PinjamanModel::where('status','diajukan')->all();
+        $diproses = PinjamanModel::where('status','diproses')->all();
+        $ditolak = PinjamanModel::where('status','ditolak')->all();
+        $disetujui = PinjamanModel::where('status','disetujui')->all();
+        // $status = []
+    }
+    public function getPengajuan(){
+        $pengajuan = PinjamanModel::where('status','diajukan')->get();
+        return view('pinjaman.pengajuan',compact('pengajuan'));
+    }
+
     public function create()
     {
         $no = AutoNumber::getPinjamanAutoNo();
@@ -56,6 +69,7 @@ class PinjamanController extends Controller
             'angsuran' => $request['angsuran'],
             'keterangan' => $request['keterangan'],
             'admin' => Auth::user()->nrp,
+            'status' => 'Diajukan',
             ]);
         return redirect()->route('pinjaman.index');
     }

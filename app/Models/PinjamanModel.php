@@ -20,5 +20,6 @@ class PinjamanModel extends Model
         'angsuran',
         'keterangan',
         'admin',
+        'status',
     ];
 }

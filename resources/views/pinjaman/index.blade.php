@@ -1,6 +1,12 @@
 @extends('layouts.template')
 @section('sidemenu')
-  @include('admin.sidemenu')
+@section('sidemenu')
+    @if (Auth::user()->level == 'admin')
+        @include('admin.sidemenu')
+    @elseif (Auth::user()->level == 'ketua')
+        @include('ketua.sidemenu')
+    @endif
+@endsection
 @endsection
 @section('data-tables')
 <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">

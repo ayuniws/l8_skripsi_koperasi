@@ -65,6 +65,8 @@ Route::resource('bagian',BagianController::class);
 Route::resource('simpanan',SimpananController::class);
 //Pinjaman
 Route::resource('pinjaman',PinjamanController::class);
+Route::get('pinjaman.pengajuan', [App\Http\Controllers\PinjamanController::class, 'getPengajuan'])->name('pinjaman.pengajuan');
+
 
 
 //Route::resource('sisw',SiswaControllers::class);

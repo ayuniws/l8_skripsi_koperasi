@@ -1,10 +1,12 @@
 @extends('layouts.template')
 @section('sidemenu')
+@section('sidemenu')
     @if (Auth::user()->level == 'admin')
         @include('admin.sidemenu')
     @elseif (Auth::user()->level == 'ketua')
         @include('ketua.sidemenu')
     @endif
+@endsection
 @endsection
 @section('data-tables')
 <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
@@ -21,7 +23,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Daftar Simpanan</h4>
+                  <h4 class="card-title">Daftar Pengajuan Pinjaman</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -33,9 +35,6 @@
                 </div>
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
-                    <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('simpanan.create') }}">Add TR Simpanan</a>
-                  </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
@@ -43,23 +42,27 @@
                             <th>Tanggal</th>
                             <th>Anggota</th>
                             <th>Jumlah</th>
+                            <th>Angsuran</th>
                             <th>Keterangan</th>
                             <th>Admin</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($simpanan as $data )
+                          @foreach ($pengajuan as $data )
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
                               <td>{{ $data->nrp }}</td>
                               <td>{{ $data->jumlah }}</td>
+                              <td>{{ $data->angsuran }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td>{{ $data->admin }}</td>
+                              <td>{{ ucfirst($data->status) }}</td>
                               <td class="text-center">
-                                <form action="{{ route('simpanan.destroy',$data->id) }}" method="POST">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('simpanan.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('pinjaman.destroy',$data->id) }}" method="POST">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('pinjaman.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>

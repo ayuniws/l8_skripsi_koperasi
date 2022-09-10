@@ -9,9 +9,11 @@
       <li class="active"><a href=""><i class="la la-users"></i><span class="menu-title" data-i18n="nav.templates.main">Data Anggota</span></a></li>
       <li class="active nav-item"><a href="index.html"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Lihat Transaksi</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('simpanan.index') }}" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
-          <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Transaksi Pengajuan</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('pinjaman.index') }}" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>
+          </li>
+          <li class="menu-item"><a class="menu-item" href="{{ route('pinjaman.pengajuan') }}" data-i18n="nav.dash.ecommerce">Transaksi Pengajuan</a>
           </li>
         </ul>
       </li>
