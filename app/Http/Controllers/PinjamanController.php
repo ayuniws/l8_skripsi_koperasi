@@ -18,7 +18,7 @@ class PinjamanController extends Controller
     public function index()
     {
         $pinjaman = PinjamanModel::all();
-        return view('simpanan.index',compact('pinjaman'));
+        return view('pinjaman.index',compact('pinjaman'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PinjamanController extends Controller
             'keterangan' => $request['keterangan'],
             'admin' => Auth::user()->nrp,
             ]);
-        return redirect()->route('jabatan.index');
+        return redirect()->route('pinjaman.index');
     }
 
     /**

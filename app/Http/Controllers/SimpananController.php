@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AutoNumber;
 use Illuminate\Http\Request;
 use App\Models\AnggotaModel;
 use App\Models\SimpananModel;
@@ -30,7 +31,8 @@ class SimpananController extends Controller
     public function create()
     {
         $anggota=AnggotaModel::all();
-        return view('simpanan.create',compact('anggota'));
+        $no=AutoNumber::getSimpananAutoNo();
+        return view('simpanan.create',compact(['anggota','no']));
     }
 
     /**
@@ -55,7 +57,7 @@ class SimpananController extends Controller
             'keterangan' => $request['keterangan'],
             'admin' => Auth::user()->nrp,
             ]);
-        return redirect()->route('jabatan.index');
+        return redirect()->route('simpanan.index');
     }
 
     /**

@@ -33,9 +33,9 @@
       </li>
       <li class="active"><a href="#"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="simpanan" data-i18n="nav.dash.ecommerce">Manage Simpanan</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('simpanan.index') }}" data-i18n="nav.dash.ecommerce">Manage Simpanan</a>
           </li>
-          <li><a class="menu-item" href="pinjaman" data-i18n="nav.dash.crypto">Manage Pinjaman</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('pinjaman.index') }}" data-i18n="nav.dash.ecommerce">Manage Pinjaman</a>
           </li>
         </ul>
       </li>

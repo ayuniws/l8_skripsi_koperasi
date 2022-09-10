@@ -31,7 +31,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">No</label>
-                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="{{ $no }}">
+                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ $no }}" readonly>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -51,7 +51,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Jumlah</label>
-                                <input type="date" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah">
+                                <input type="text" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah">
                             </div>
                           </div>
                         </div>
@@ -64,11 +64,11 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Keterangan</label>
-                                <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
+                               <label for="projectinput1">Keterangan</label>
+                               <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
                             </div>
                           </div>
-                        </div>
+                            </div>
                       <div class="form-actions right">
                         <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                         <button type="submit" class="btn btn-primary btn-min-width">

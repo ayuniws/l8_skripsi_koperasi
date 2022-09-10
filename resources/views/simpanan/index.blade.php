@@ -45,7 +45,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($pinjaman as $data )
+                          @foreach ($simpanan as $data )
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
@@ -54,8 +54,8 @@
                               <td>{{ $data->keterangan }}</td>
                               <td>{{ $data->admin }}</td>
                               <td class="text-center">
-                                <form action="{{ route('jabatan.destroy',$data->id) }}" method="POST">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('jabatan.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('simpanan.destroy',$data->id) }}" method="POST">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('simpanan.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>

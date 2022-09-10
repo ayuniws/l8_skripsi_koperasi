@@ -64,7 +64,7 @@ Route::resource('bagian',BagianController::class);
 //Simpanan
 Route::resource('simpanan',SimpananController::class);
 //Pinjaman
-Route::resource('simpanan',PinjamanController::class);
+Route::resource('pinjaman',PinjamanController::class);
 
 
 //Route::resource('sisw',SiswaControllers::class);
