@@ -26,7 +26,8 @@ class BagianController extends Controller
      */
     public function create()
     {
-        //
+        $no_urut = AutoNumber::getBagianAutoNo('B');
+        return view('bagian.create',compact('no_urut'));
     }
 
     /**
@@ -37,7 +38,16 @@ class BagianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_bagian' => 'required',
+            'nama_bagian' => 'required',
+        ]);
+
+        BagianModel::create([
+            'kode_bagian' => $request['kode_bagian'],
+            'nama_bagian' => $request['nama_bagian'],
+            ]);
+        return redirect()->route('bagian.index');
     }
 
     /**
@@ -59,7 +69,8 @@ class BagianController extends Controller
      */
     public function edit(BagianModel $bagian)
     {
-        //
+        //dd($bagian->id);
+        return view('bagian.edit',compact('bagian'));
     }
 
     /**
@@ -71,7 +82,18 @@ class BagianController extends Controller
      */
     public function update(Request $request, BagianModel $bagian)
     {
-        //
+        $request->validate([
+            'kode_bagian' => 'required',
+            'nama_bagian' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $bagian->update($request->all());
+         BagianModel::where('id',$request['id'])->update([
+            'kode_bagian' => $request['kode_bagian'],
+            'nama_bagian' => $request['nama_bagian'],
+        ]);
+        return redirect()->route('bagian.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -82,6 +104,7 @@ class BagianController extends Controller
      */
     public function destroy(BagianModel $bagian)
     {
-        //
+        $bagian->delete();
+        return redirect()->route('bagian.index')->with('Succes','Data Berhasil di Hapus');
     }
 }

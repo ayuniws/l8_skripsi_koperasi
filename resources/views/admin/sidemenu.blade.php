@@ -15,6 +15,22 @@
           </li>
         </ul>
       </li>
+      <li class="active"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.templates.main">Manage Jabatan</span></a>
+        <ul class="menu-content">
+          <li><a class="menu-item" href="{{ route('jabatan.index') }}" data-i18n="nav.templates.vert.main">Data Jabatan</a>
+          </li>
+          <li><a class="menu-item" href="{{ route('jabatan.create') }}" data-i18n="nav.templates.horz.main">Tambah Jabatan</a>
+          </li>
+        </ul>
+      </li>
+      <li class="active"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.templates.main">Manage Bagian</span></a>
+        <ul class="menu-content">
+          <li><a class="menu-item" href="{{ route('bagian.index') }}" data-i18n="nav.templates.vert.main">Data Bagian</a>
+          </li>
+          <li><a class="menu-item" href="{{ route('bagian.create') }}" data-i18n="nav.templates.horz.main">Tambah Bagian</a>
+          </li>
+        </ul>
+      </li>
       <li class="active"><a href="#"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="simpanan" data-i18n="nav.dash.ecommerce">Manage Simpanan</a>

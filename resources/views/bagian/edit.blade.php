@@ -37,7 +37,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput2">Nama Bagian</label>
-                                    <input type="text" id="nama_bagian" class="form-control" placeholder="Nama Bagian" name="nama_bagian" value="{{ $jabatan->kode_jabatan }}" readonly>
+                                    <input type="text" id="nama_bagian" class="form-control" placeholder="Nama Bagian" name="nama_bagian" value="{{ $jabatan->nama_jabatan }}">
                                   </div>
                                 </div>
                               </div>

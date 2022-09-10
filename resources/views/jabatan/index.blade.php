@@ -30,7 +30,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('barang.create') }}">Add Jabatan</a>
+                      <a class="btn btn-success" href="{{ route('jabatan.create') }}">Add Jabatan</a>
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
@@ -46,7 +46,7 @@
                               <td>{{ $data->kode_jabatan }}</td>
                               <td>{{ $data->nama_jabatan }}</td>
                               <td class="text-center">
-                                <form action="{{ route('jabatan.destroy',$data->kode_jabatan) }}" method="POST">
+                                <form action="{{ route('jabatan.destroy',$data->id) }}" method="POST">
                                     <a class="btn btn-primary btn-sm" href="{{ route('jabatan.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}

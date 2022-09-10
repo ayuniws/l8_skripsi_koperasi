@@ -13,6 +13,8 @@ class AnggotaModel extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'users';
     protected $primarykey = 'nrp';
+    public $timestamps = false;
+
 
     protected $filliable = [
         'nrp',

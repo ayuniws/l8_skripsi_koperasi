@@ -29,7 +29,6 @@ class JabatanController extends Controller
     {
         $no_urut = AutoNumber::getJabatanAutoNo('J');
         return view('jabatan.create',compact('no_urut'));
-
     }
 
     /**
@@ -40,7 +39,16 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_jabatan' => 'required',
+            'nama_jabatan' => 'required',
+        ]);
+
+        JabatanModel::create([
+            'kode_jabatan' => $request['kode_jabatan'],
+            'nama_jabatan' => $request['nama_jabatan'],
+            ]);
+        return redirect()->route('jabatan.index');
     }
 
     /**
@@ -62,7 +70,9 @@ class JabatanController extends Controller
      */
     public function edit(JabatanModel $jabatan)
     {
-        //
+        //dd($jabatan->id);
+        return view('jabatan.edit',compact('jabatan'));
+
     }
 
     /**
@@ -74,7 +84,18 @@ class JabatanController extends Controller
      */
     public function update(Request $request, JabatanModel $jabatan)
     {
-        //
+        $request->validate([
+            'kode_jabatan' => 'required',
+            'nama_jabatan' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $jabatan->update($request->all());
+         JabatanModel::where('id',$request['id'])->update([
+            'kode_jabatan' => $request['kode_jabatan'],
+            'nama_jabatan' => $request['nama_jabatan'],
+        ]);
+        return redirect()->route('jabatan.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -85,6 +106,7 @@ class JabatanController extends Controller
      */
     public function destroy(JabatanModel $jabatan)
     {
-        //
+        $jabatan->delete();
+        return redirect()->route('jabatan.index')->with('Succes','Data Berhasil di Hapus');
     }
 }

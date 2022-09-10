@@ -37,7 +37,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput2">Nama Jabatan</label>
-                                    <input type="text" id="nama_jabatan" class="form-control" placeholder="Nama Jabatan" name="nama_jabatan" value="{{ $jabatan->kode_jabatan }}" readonly>
+                                    <input type="text" id="nama_jabatan" class="form-control" placeholder="Nama Jabatan" name="nama_jabatan" value="{{ $jabatan->nama_jabatan }}">
                                   </div>
                                 </div>
                               </div>

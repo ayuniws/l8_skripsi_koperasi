@@ -10,7 +10,7 @@ class PinjamanModel extends Model
     use HasFactory;
     protected $table = 'tbl_te_pinjaman';
     protected $primary_key ='id';
-    public $timestamps = 'false';
+    public $timestamps = false;
 
     protected $fillable = [
         'no',
