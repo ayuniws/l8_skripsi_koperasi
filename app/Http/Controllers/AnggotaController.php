@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnggotaModel;
+use App\Models\AngsuranModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -27,12 +28,24 @@ class AnggotaController extends Controller
     }
 
     public function dashboardKetua(){
+        // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
         $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
         $total_admin = User::where('level', 'admin')->count();
-        return view('ketua.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+        $total_pinjaman = number_format(PinjamanModel::sum('jumlah'), 2, '.', ',');
+        $total_simpanan = number_format(SimpananModel::sum('jumlah'), 2, '.', ',');
+        $hitung_selisih = (SimpananModel::sum('jumlah')-AngsuranModel::sum('jumlah'));
+        $total_selisih = ($hitung_selisih <= 0) ? '0' : $hitung_selisih;
+        $total_peminjam = PinjamanModel::where('status_pinjaman','disetujui')->count();
+
+
+        return view('ketua.dashboard',
+        ['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user,
+        'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
+        'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
+        'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);
     }
 
     public function dashboard()

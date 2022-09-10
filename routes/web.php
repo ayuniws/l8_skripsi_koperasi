@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\AngsuranController;
 use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaControllers;
@@ -61,6 +62,8 @@ Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'de
 Route::resource('jabatan',JabatanController::class);
 //Bagian
 Route::resource('bagian',BagianController::class);
+//Angsuran
+Route::resource('angsuran',AngsuranController::class);
 //Simpanan
 Route::resource('simpanan',SimpananController::class);
 //Pinjaman

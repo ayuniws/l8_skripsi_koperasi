@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\PinjamanModel;
+use App\Models\SimpananModel;
+use App\Models\AngsuranModel;
 use Illuminate\Http\Request;
 use Alert;
 use Illuminate\Foundation\Auth\User as AuthUser;
@@ -17,7 +20,7 @@ class PenggunaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');    
+        $this->middleware('guest')->except('logout');
     }
 
     public function index()
@@ -27,12 +30,24 @@ class PenggunaController extends Controller
     }
     public function dashboard()
     {
+        // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
         $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
         $total_admin = User::where('level', 'admin')->count();
-        return view('admin.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+        $total_pinjaman = number_format(PinjamanModel::sum('jumlah'), 2, '.', ',');
+        $total_simpanan = number_format(SimpananModel::sum('jumlah'), 2, '.', ',');
+        $hitung_selisih = (SimpananModel::sum('jumlah')-AngsuranModel::sum('jumlah'));
+        $total_selisih = ($hitung_selisih <= 0) ? '0' : $hitung_selisih;
+        $total_peminjam = PinjamanModel::where('status_pinjaman','disetujui')->count();
+
+
+        return view('admin.dashboard',
+        ['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user,
+        'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
+        'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
+        'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);
     }
 
 
@@ -78,7 +93,7 @@ class PenggunaController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $pengguna) 
+    public function show(User $pengguna)
     {
         return view('admin.show',compact('pengguna'));
         // dd($pengguna->nrp);
@@ -93,7 +108,7 @@ class PenggunaController extends Controller
     public function edit(User $pengguna)
     {
         return view('admin.edit', compact('pengguna'));
-        //dd($id);    
+        //dd($id);
     }
 
     /**
@@ -130,7 +145,7 @@ class PenggunaController extends Controller
                 'password' => Hash::make($request['password'])
             ]);
                 return redirect()->route('pengguna.index');
-        } 
+        }
         //return redirect()->route('pengguna.index')->with('Succes','Data Berhasil di Update');
     }
 

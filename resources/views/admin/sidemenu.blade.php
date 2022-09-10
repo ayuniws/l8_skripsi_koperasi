@@ -33,6 +33,8 @@
       </li>
       <li class="active"><a href="#"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
         <ul class="menu-content">
+          <li class="menu-item"><a class="menu-item" href="{{ route('angsuran.index') }}" data-i18n="nav.dash.ecommerce">Manage Angsuran</a>
+          </li>
           <li class="menu-item"><a class="menu-item" href="{{ route('simpanan.index') }}" data-i18n="nav.dash.ecommerce">Manage Simpanan</a>
           </li>
           <li class="menu-item"><a class="menu-item" href="{{ route('pinjaman.index') }}" data-i18n="nav.dash.ecommerce">Manage Pinjaman</a>
@@ -41,6 +43,8 @@
       </li>
       <li class="active"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan</span></a>
         <ul class="menu-content">
+          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Angsuran</a>
+          </li>
           <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
           <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>

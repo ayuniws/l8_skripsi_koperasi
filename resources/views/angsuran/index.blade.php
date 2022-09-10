@@ -23,7 +23,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Daftar Pinjaman</h4>
+                  <h4 class="card-title">Daftar Angsuran</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -36,7 +36,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('pinjaman.create') }}">Add TR Pinjaman</a>
+                      <a class="btn btn-success" href="{{ route('angsuran.create') }}">Add TR Pinjaman</a>
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
@@ -45,29 +45,25 @@
                             <th>Tanggal</th>
                             <th>Anggota</th>
                             <th>Jumlah</th>
-                            <th>Angsuran</th>
+                            <th>Angsuran Ke</th>
                             <th>Keterangan</th>
                             <th>Admin</th>
-                            <th>Status Pengajuan</th>
-                            <th>Status Pembayaran</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($pinjaman as $data )
+                          @foreach ($angsuran as $data )
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
                               <td>{{ $data->nrp }}</td>
                               <td>{{ $data->jumlah }}</td>
-                              <td>{{ $data->angsuran }}</td>
+                              <td>{{ $data->angsuran_ke }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td>{{ $data->admin }}</td>
-                              <td>{{ $data->status_pengajuan}}</td>
-                              <td>{{ $data->status_pinjaman}}</td>
                               <td class="text-center">
-                                <form action="{{ route('pinjaman.destroy',$data->id) }}" method="POST">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('pinjaman.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('angsuran.destroy',$data->id) }}" method="POST">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('angsuran.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
