@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
+use App\Helpers\AutoNumber;
+use App\Models\AnggotaModel;
 
 class PinjamanController extends Controller
 {
@@ -14,7 +16,8 @@ class PinjamanController extends Controller
      */
     public function index()
     {
-        //
+        $pinjaman = PinjamanModel::all();
+        return view('simpanan.index',compact('pinjaman'));
     }
 
     /**
@@ -24,7 +27,8 @@ class PinjamanController extends Controller
      */
     public function create()
     {
-        //
+        $anggota=AnggotaModel::all();
+        return view('pinjaman.create',compact('anggota'));
     }
 
     /**
@@ -35,7 +39,10 @@ class PinjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_jabatan' => 'required',
+            'nama_jabatan' => 'required',
+        ]);
     }
 
     /**
@@ -44,7 +51,7 @@ class PinjamanController extends Controller
      * @param  \App\Models\PinjamanModel  $pinjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function show(PinjamanModel $pinjamanModel)
+    public function show(PinjamanModel $pinjaman)
     {
         //
     }
@@ -55,7 +62,7 @@ class PinjamanController extends Controller
      * @param  \App\Models\PinjamanModel  $pinjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(PinjamanModel $pinjamanModel)
+    public function edit(PinjamanModel $pinjaman)
     {
         //
     }
@@ -67,7 +74,7 @@ class PinjamanController extends Controller
      * @param  \App\Models\PinjamanModel  $pinjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PinjamanModel $pinjamanModel)
+    public function update(Request $request, PinjamanModel $pinjaman)
     {
         //
     }
@@ -78,7 +85,7 @@ class PinjamanController extends Controller
      * @param  \App\Models\PinjamanModel  $pinjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PinjamanModel $pinjamanModel)
+    public function destroy(PinjamanModel $pinjaman)
     {
         //
     }

@@ -5,6 +5,7 @@ namespace App\Helpers;
 use App\Models\JabatanModel;
 use Carbon\Carbon;
 use App\Models\RecycleModel;
+use App\Models\SimpananModel;
 // use Illuminate\support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -43,6 +44,4 @@ class AutoNumber
         }
         return $kode;
     }
-
-
 }

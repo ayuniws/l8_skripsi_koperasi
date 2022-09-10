@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PinjamanModel extends Model
 {
     use HasFactory;
-    protected $table = 'tbl_te_pinjaman';
+    protected $table = 'tbl_tr_pinjaman';
     protected $primary_key ='id';
     public $timestamps = false;
 
