@@ -17,7 +17,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Daftar Pinjaman</h4>
+                  <h4 class="card-title">Daftar Simpanan</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -30,7 +30,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('pinjaman.create') }}">Add TR Pinjaman</a>
+                      <a class="btn btn-success" href="{{ route('simpanan.create') }}">Add TR Simpanan</a>
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
@@ -39,7 +39,6 @@
                             <th>Tanggal</th>
                             <th>Anggota</th>
                             <th>Jumlah</th>
-                            <th>Angsuran</th>
                             <th>Keterangan</th>
                             <th>Admin</th>
                             <th>Action</th>
@@ -52,7 +51,6 @@
                               <td>{{ $data->tanggal }}</td>
                               <td>{{ $data->nrp }}</td>
                               <td>{{ $data->jumlah }}</td>
-                              <td>{{ $data->angsuran }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td>{{ $data->admin }}</td>
                               <td class="text-center">

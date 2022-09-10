@@ -31,12 +31,12 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">No</label>
-                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no">
+                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="{{ $no }}">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Nama Jabatan</label>
+                              <label for="projectinput1">Tanggal</label>
                                 <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal">
                             </div>
                           </div>
@@ -64,7 +64,7 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Jumlah</label>
+                              <label for="projectinput1">Keterangan</label>
                                 <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
                             </div>
                           </div>

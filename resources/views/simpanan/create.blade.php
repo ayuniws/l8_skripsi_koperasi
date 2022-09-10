@@ -12,7 +12,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Transaksi Pinjaman</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Transaksi Simpanan</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -25,18 +25,18 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                    <form method="POST" action="{{ route('pinjaman.store') }}" class="form" novalidate>@csrf
+                    <form method="POST" action="{{ route('simpanan.store') }}" class="form" novalidate>@csrf
                       <div class="form-body">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">No</label>
-                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no">
+                              <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="{{ $no }}">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Nama Jabatan</label>
+                              <label for="projectinput1">Tanggal</label>
                                 <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal">
                             </div>
                           </div>
@@ -58,14 +58,8 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Angsuran</label>
-                              <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput1">Jumlah</label>
-                                <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
+                              <label for="projectinput1">Keterangan</label>
+                              <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
                             </div>
                           </div>
                         </div>

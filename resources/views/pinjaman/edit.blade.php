@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label for="projectinput1">Nama Jabatan</label>
+                                        <label for="projectinput1">Tanggal</label>
                                           <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal" value="{{ pinjaman->tanggal }}">
                                       </div>
                                     </div>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label for="projectinput1">Jumlah</label>
+                                        <label for="projectinput1">Keterangan</label>
                                           <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ pinjaman->keterangan }}">
                                       </div>
                                     </div>

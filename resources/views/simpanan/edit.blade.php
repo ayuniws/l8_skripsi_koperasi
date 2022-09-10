@@ -11,7 +11,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Edit Transaksi Pinjaman</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Edit Transaksi Simpanan</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -24,19 +24,19 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                        <form method="POST" action="{{ route('pinjaman.update', $pinjaman->id) }}" class="form" novalidate>@csrf @method('PUT')
+                        <form method="POST" action="{{ route('pinjaman.update', $simpanan->id) }}" class="form" novalidate>@csrf @method('PUT')
                                 <div class="form-body">
                                   <div class="row">
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">No</label>
-                                        <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ pinjaman->no }}">
+                                        <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ simpanan->no }}">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label for="projectinput1">Nama Jabatan</label>
-                                          <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal" value="{{ pinjaman->tanggal }}">
+                                        <label for="projectinput1">Tanggal</label>
+                                          <input type="date" id="tanggal" class="form-control" placeholder="Tanggal Transaksi" name="tanggal" value="{{ simpanan->tanggal }}">
                                       </div>
                                     </div>
                                   </div>
@@ -44,27 +44,21 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Anggota</label>
-                                        <input type="text" id="nrp" class="form-control" placeholder="Anggota" name="nrp" value="{{ pinjaman->nrp }}">
+                                        <input type="text" id="nrp" class="form-control" placeholder="Anggota" name="nrp" value="{{ simpanan->nrp }}">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label for="projectinput1">Jumlah</label>
-                                          <input type="date" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah" value="{{ pinjaman->jumlah }}">
+                                          <input type="date" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah" value="{{ simpanan->jumlah }}">
                                       </div>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label for="projectinput1">Angsuran</label>
-                                        <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran" value="{{ pinjaman->angsuran }}">
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="form-group">
-                                        <label for="projectinput1">Jumlah</label>
-                                          <input type="date" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ pinjaman->keterangan }}">
+                                        <label for="projectinput1">Keterangan</label>
+                                        <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ simpanan->keterangan }}">
                                       </div>
                                     </div>
                                   </div>
