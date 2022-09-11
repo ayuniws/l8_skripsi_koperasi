@@ -28,14 +28,14 @@ class PinjamanController extends Controller
      */
     public function getListPinjaman(){
 
-        $diajukan = PinjamanModel::where('status','diajukan')->all();
-        $diproses = PinjamanModel::where('status','diproses')->all();
-        $ditolak = PinjamanModel::where('status','ditolak')->all();
-        $disetujui = PinjamanModel::where('status','disetujui')->all();
+        $diajukan = PinjamanModel::where('status_pengajuan','diajukan')->all();
+        $diproses = PinjamanModel::where('status_pengajuan','diproses')->all();
+        $ditolak = PinjamanModel::where('status_pengajuan','ditolak')->all();
+        $disetujui = PinjamanModel::where('status_pengajuan','disetujui')->all();
         // $status = []
     }
     public function getPengajuan(){
-        $pengajuan = PinjamanModel::where('status','diajukan')->get();
+        $pengajuan = PinjamanModel::where('status_pengajuan','diajukan')->get();
         return view('pinjaman.pengajuan',compact('pengajuan'));
     }
 

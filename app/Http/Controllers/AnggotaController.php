@@ -58,6 +58,11 @@ class AnggotaController extends Controller
         return view('anggota.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
     }
 
+    public function showPengajuanPinjaman(){
+        $list_pengajuan = PinjamanModel::where('status_pengajuan','diajukan')->get();
+        return view('ketua.daftar-pengajuan-pinjaman',compact('list_pengajuan'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

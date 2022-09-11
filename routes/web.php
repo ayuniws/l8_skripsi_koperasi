@@ -58,6 +58,8 @@ Route::get('/ketua/{pengguna}/show', [App\Http\Controllers\PenggunaController::c
 Route::get('/ketua/dashboard', [App\Http\Controllers\AnggotaController::class, 'dashboardKetua'])->name('ketua.dashboard');
 Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'update'])->name('anggota.update');
 Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
+Route::get('/ketua/pengajuan-diajukan', [App\Http\Controllers\AnggotaController::class, 'showPengajuanPinjaman'])->name('pinjaman.pengajuan-diajukan');
+
 //Jabatan
 Route::resource('jabatan',JabatanController::class);
 //Bagian
@@ -69,6 +71,7 @@ Route::resource('simpanan',SimpananController::class);
 //Pinjaman
 Route::resource('pinjaman',PinjamanController::class);
 Route::get('pinjaman.pengajuan', [App\Http\Controllers\PinjamanController::class, 'getPengajuan'])->name('pinjaman.pengajuan');
+Route::post('/pinjaman/{id}', [App\Http\Controllers\PinjamanController::class, 'destroy'])->name('pinjaman.proses');
 
 
 
