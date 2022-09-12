@@ -45,7 +45,11 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Anggota</label>
-                              <input type="text" id="nrp" class="form-control" placeholder="Anggota" name="nrp">
+                              <select id="nrp" name="nrp" class="form-control">
+                                @foreach($anggota as $data)
+                                <option value="{{$data->nrp}}">{{$data->nama_anggota}}</option>
+                                @endforeach
+                              </select>
                             </div>
                           </div>
                           <div class="col-md-6">

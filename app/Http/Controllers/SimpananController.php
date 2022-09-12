@@ -49,13 +49,15 @@ class SimpananController extends Controller
             'nrp' => 'required',
             'jumlah' => 'required',
         ]);
+
+        $tanggal = strtotime($request['tanggal']);
         SimpananModel::create([
             'no' => $request['no'],
-            'tanggal' => $request['tanggal'],
+            'tanggal' => $tanggal,
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'keterangan' => $request['keterangan'],
-            'admin' => Auth::user()->nrp,
+            'admin' => Auth::user()->name,
             ]);
         return redirect()->route('simpanan.index');
     }

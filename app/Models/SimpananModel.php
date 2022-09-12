@@ -19,4 +19,9 @@ class SimpananModel extends Model
         'keterangan',
         'admin',
     ];
+
+    public function anggota(){
+        return $this->belongsTo(AnggotaModel::class,'nrp','nrp');
+    }
+
 }

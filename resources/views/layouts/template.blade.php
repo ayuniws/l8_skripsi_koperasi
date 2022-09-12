@@ -32,7 +32,6 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/core/colors/palette-gradient.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/fonts/simple-line-icons/style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/core/colors/palette-gradient.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin//app-assets/css/plugins/pickers/daterange/daterange.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/pages/timeline.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
   <!-- END Page Level CSS-->

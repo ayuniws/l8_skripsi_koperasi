@@ -56,11 +56,11 @@
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
-                              <td>{{ $data->nrp->anggota->nama_anggota }}</td>
+                              <td>{{ $data->anggota->nama_anggota }}</td>
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->angsuran_ke }}</td>
                               <td>{{ $data->keterangan }}</td>
-                              <td>{{ $data->admin }}</td>
+                              <td>{{ $data->user->name }}</td>
                               <td class="text-center">
                                 <form action="{{ route('angsuran.destroy',$data->id) }}" method="POST">
                                     <a class="btn btn-primary btn-sm" href="{{ route('angsuran.edit',$data->id) }}"><i class="la la-edit"></i></a>

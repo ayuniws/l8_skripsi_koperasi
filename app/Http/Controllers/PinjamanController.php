@@ -61,14 +61,16 @@ class PinjamanController extends Controller
             'jumlah' => 'required',
             'angsuran' => 'required',
         ]);
+
+        $tanggal = strtotime($request['tanggal']);
         PinjamanModel::create([
             'no' => $request['no'],
-            'tanggal' => $request['tanggal'],
+            'tanggal' => $tanggal,
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'angsuran' => $request['angsuran'],
             'keterangan' => $request['keterangan'],
-            'admin' => Auth::user()->nrp,
+            'admin' => Auth::user()->name,
             'status' => 'Diajukan',
             ]);
         return redirect()->route('pinjaman.index');

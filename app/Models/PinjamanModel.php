@@ -23,4 +23,9 @@ class PinjamanModel extends Model
         'status_pengajuan',
         'status_pinjaman',
     ];
+
+    public function anggota(){
+        return $this->belongsTo(AnggotaModel::class,'nrp','nrp');
+    }
+
 }

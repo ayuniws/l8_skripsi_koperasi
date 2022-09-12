@@ -22,6 +22,9 @@ class AngsuranModel extends Model
     ];
 
     public function anggota(){
-        return $this->hasMany(AnggotaModel::class,'nrp','nrp');
+        return $this->belongsTo(AnggotaModel::class,'nrp','nrp');
+    }
+    public function user(){
+        return $this->belongsTo(User::class,'nrp','nrp');
     }
 }

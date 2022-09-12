@@ -57,7 +57,7 @@ class AngsuranController extends Controller
             'jumlah' => $request['jumlah'],
             'angsuran_ke' => $request['angsuran_ke'],
             'keterangan' => $request['keterangan'],
-            'admin' => Auth::user()->nrp,
+            'admin' => Auth::user()->name,
             ]);
             return redirect()->route('angsuran.index');
     }

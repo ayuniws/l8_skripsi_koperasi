@@ -28,6 +28,11 @@ class User extends Authenticatable
 
     }
 
+    public function angsuran(){
+        return $this->hasOne(AngsuranModel::class,'nrp','nrp');
+
+    }
+
 
     // protected $hidden = [
     //     'password',
