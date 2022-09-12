@@ -72,6 +72,8 @@ Route::resource('simpanan',SimpananController::class);
 Route::resource('pinjaman',PinjamanController::class);
 Route::get('pinjaman.pengajuan', [App\Http\Controllers\PinjamanController::class, 'getPengajuan'])->name('pinjaman.pengajuan');
 Route::post('/pinjaman/{id}', [App\Http\Controllers\PinjamanController::class, 'destroy'])->name('pinjaman.proses');
+Route::get('/pengajuan/{pinjaman}/approve', [App\Http\Controllers\PinjamanController::class, 'pinjaman'])->name('pengajuan.approve');
+Route::get('/pengajuan/{pinjaman}/reject', [App\Http\Controllers\PinjamanController::class, 'pinjaman'])->name('pengajuan.reject');
 
 
 

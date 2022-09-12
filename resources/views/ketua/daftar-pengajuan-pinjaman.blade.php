@@ -42,9 +42,8 @@
                             <th>Tanggal</th>
                             <th>Anggota</th>
                             <th>Jumlah</th>
-                            <th>Jumlah Angsuran</th>
+                            <th>Angsuran</th>
                             <th>Keterangan</th>
-                            <th>Status Pengajuan</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -57,28 +56,12 @@
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->angsuran }}</td>
                               <td>{{ $data->keterangan }}</td>
-                              <td>{{ $data->status_pengajuan}}</td>
                               <td class="text-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-info dropdown-toggle mr-1 mb-1"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                    <div class="dropdown-menu">
-                                    <form action="{{ route('pinjaman.proses',$data->id) }}" method="POST">@csrf
-                                        <a class="dropdown-item">Setujui</a>
-                                    </form>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Tolak</a>
-                                    </div>
-                                </div>
-                                {{-- <form action="{{ route('pinjaman.destroy',$data->id) }}" method="POST">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('pinjaman.edit',$data->id) }}"><i class="la la-edit"></i></a>
-                                    @csrf
-                                    {{-- @method('DELETE') --}}
-                                    {{-- <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
-                                </form>  --}}
-                            </td>
-                        </tr>
-                        @endforeach
+                                <a class="btn btn-success btn-sm" href="{{ route('pengajuan.approve',$data->id) }}">Setujui</a>
+                                <a class="btn btn-danger btn-sm" href="{{ route('pengajuan.reject',$data->id) }}">Tolak</a>
+                              </td>
+                             </tr>
+                            @endforeach
                         </tbody>
                       </table>
                   </div>
