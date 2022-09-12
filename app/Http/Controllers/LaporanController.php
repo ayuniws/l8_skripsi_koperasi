@@ -12,15 +12,15 @@ class LaporanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function laporanAngsuran(){
-
+        return view('laporan.show-laporan-angsuran');
     }
 
     public function laporanPinjaman(){
-
+        return view('laporan.show-laporan-pinjaman');
     }
 
     public function laporanSimpanan(){
-
+        return view('laporan.show-laporan-simpanan');
     }
 
     public function index()
