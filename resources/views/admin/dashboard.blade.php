@@ -225,7 +225,7 @@
                         @foreach ($users as $data )
                           <tr>
                             <td>{{ $data->nrp }}</td>
-                            <td>{{ ucwords($data->nama_anggota) }}</td>
+                            <td>{{ ucwords($data->anggota->nama_anggota) }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->level }}</td>
                             <td>{{ $data->status }}</td>

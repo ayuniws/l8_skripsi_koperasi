@@ -29,7 +29,7 @@ class AnggotaController extends Controller
 
     public function dashboardKetua(){
         // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
-        $user = User::all();
+        $anggota = AnggotaModel::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
@@ -42,7 +42,7 @@ class AnggotaController extends Controller
 
 
         return view('ketua.dashboard',
-        ['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user,
+        ['users' => $anggota,'total_users' => $total_user,'total_active_users' => $total_active_user,
         'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
         'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
         'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);

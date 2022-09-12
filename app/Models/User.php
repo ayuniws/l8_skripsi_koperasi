@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password'
     ];
 
+    public function anggota(){
+        return $this->hasOne(Anggota::class);
+
+    }
+
     protected $hidden = [
         'password',
         //'remember_token',
