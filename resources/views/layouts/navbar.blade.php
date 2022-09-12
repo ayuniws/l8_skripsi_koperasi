@@ -27,7 +27,7 @@
                 <span class="user-name text-bold-400">{{ ucwords(Auth::user()->name) }}, [{{ Auth::user()->level }}]</span>
               {{-- </span> --}}
               <span class="avatar avatar-online">
-                @if(empty($data->foto_anggota)) <img src="{{ asset('modernadmin/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar">@else <img src="{{asset('/foto_anggota/'.$data->foto_anggota)}}" width="40px"/> @endif<i></i></span>
+                @if(empty(Auth::user()->anggota->foto)) <img src="{{ asset('modernadmin/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar">@else <img src="{{asset('/foto_anggota/'.Auth::user()->anggota->foto)}}" width="40px"/> @endif<i></i></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
               {{-- <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>

@@ -22,7 +22,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="info">{{ $total_simpanans }}</h3>
+                    <h3 class="info">{{ $total_simpanan }}</h3>
                     <h6>Total Simpanan</h6>
                   </div>
                   <div>
@@ -43,7 +43,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="warning">{{ $total_pinjamans }}</h3>
+                    <h3 class="warning">{{ $total_pinjaman }}</h3>
                     <h6>Total Pinjaman</h6>
                   </div>
                   <div>
@@ -64,7 +64,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="success">{{ $total_peminjams }}</h3>
+                    <h3 class="success">{{ $total_peminjam }}</h3>
                     <h6>Total Peminjam</h6>
                   </div>
                   <div>
@@ -85,7 +85,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">{{ $total_selisihs }}</h3>
+                    <h3 class="danger">{{ $total_selisih }}</h3>
                     <h6>Total Piutang</h6>
                   </div>
                   <div>
@@ -101,6 +101,93 @@
           </div>
         </div>
       </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card pull-up">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="info">{{ $total_inactive_user }}</h3>
+                  <h6>Pengguna Non Aktif</h6>
+                </div>
+                <div>
+                  <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                </div>
+              </div>
+              <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%"
+                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card pull-up">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="warning">{{ $total_active_user }}</h3>
+                  <h6>Pengguna Aktif</h6>
+                </div>
+                <div>
+                  <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                </div>
+              </div>
+              <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%"
+                aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card pull-up">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="success">{{ $total_user }}</h3>
+                  <h6>Total Pengguna</h6>
+                </div>
+                <div>
+                  <i class="icon-user-follow success font-large-2 float-right"></i>
+                </div>
+              </div>
+              <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%"
+                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card pull-up">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="danger">{{ $total_admin }}</h3>
+                  <h6>Pengguna Level Admin</h6>
+                </div>
+                <div>
+                  <i class="icon-heart danger font-large-2 float-right"></i>
+                </div>
+              </div>
+              <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 85%"
+                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="content-body">
       <!-- HTML5 export buttons table -->
       <section id="html5">
@@ -135,15 +222,21 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($users as $data )
+                        @foreach ($user as $data )
                           <tr>
                             <td>{{ $data->nrp }}</td>
-                            <td>{{ ucwords($data->nama_anggota) }}</td>
+                            <td>{{ $data->anggota->nama_anggota }} </td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->level }}</td>
                             <td>{{ $data->status }}</td>
                             <td class="text-center">
-                                  <a class="btn btn-info btn-sm" href="{{ route('ketua.show',$data->id) }}"><i class="la la-search"></i></a>
+                              <form action="{{ route('pengguna.destroy',$data->id) }}" method="POST">
+                                @csrf
+                                {{-- @method('DELETE') --}}
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.show',$data->id) }}"><i class="la la-search"></i></a>
+                                  <a class="btn btn-primary btn-sm" href="{{ route('pengguna.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
+                              </form>
                           </td>
                       </tr>
                       @endforeach
@@ -159,4 +252,4 @@
     </div>
     </div>
   </div>
-  @endsection
+@endsection

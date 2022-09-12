@@ -8,6 +8,7 @@ use App\Models\SimpananModel;
 use App\Models\AngsuranModel;
 use Illuminate\Http\Request;
 use Alert;
+use App\Models\AnggotaModel;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,6 +32,7 @@ class PenggunaController extends Controller
     public function dashboard()
     {
         // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
+        $foto = AnggotaModel::value('foto_anggota');
         $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
@@ -44,7 +46,7 @@ class PenggunaController extends Controller
 
 
         return view('admin.dashboard',
-        compact(['user','total_user','total_active_user',
+        compact(['foto','user','total_user','total_active_user',
         'total_inactive_user' , 'total_admin',
         'total_pinjaman', 'total_simpanan',
         'total_selisih', 'total_peminjam']));

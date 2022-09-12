@@ -20,8 +20,10 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/fonts/meteocons/style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/pickers/daterange/daterangepicker.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/forms/icheck/icheck.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/forms/icheck/custom.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/pickers/daterange/daterangepicker.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/pickers/pickadate/pickadate.css') }}"> --}}
   <!-- END: Vendor CSS-->
   <!-- END VENDOR CSS-->
   <!-- BEGIN MODERN CSS-->
@@ -34,6 +36,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/core/colors/palette-gradient.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/pages/timeline.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/assets/css/style.css') }}">

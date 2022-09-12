@@ -26,16 +26,27 @@
                     <div class="card-text">
 
                     <form method="POST" action="{{ route('anggota.store') }}" class="form" novalidate enctype="multipart/form-data">@csrf
-                        <div class="row">
-                          <div class="col-md-6">
+                        <div class="row icheck_minimal skin">
+                          <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                <fieldset class="checkbox">
+                                <fieldset>
                                     <label>
                                         <input type="checkbox" value="" id="add_login" name="add_login" checked>
                                         Buat Akun Login
                                     </label>
                                 </fieldset>
                             </div>
+                          </div>
+                          {{-- <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <fieldset>
+                                    <label>
+                                        <input type="checkbox" value="" id="status" name="status" checked>
+                                        Enable
+                                    </label>
+                                </fieldset>
+                            </div>
+                          </div> --}}
                         </div>
                         </div>
                         <div class="row">

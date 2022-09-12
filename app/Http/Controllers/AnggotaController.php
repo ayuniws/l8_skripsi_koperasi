@@ -31,7 +31,8 @@ class AnggotaController extends Controller
 
     public function dashboardKetua(){
         // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
-        $anggota = AnggotaModel::all();
+        $foto = AnggotaModel::value('foto_anggota');
+        $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
@@ -44,20 +45,21 @@ class AnggotaController extends Controller
 
 
         return view('ketua.dashboard',
-        ['users' => $anggota,'total_users' => $total_user,'total_active_users' => $total_active_user,
-        'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
-        'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
-        'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);
+        compact(['foto','user','total_user','total_active_user',
+        'total_inactive_user' , 'total_admin',
+        'total_pinjaman', 'total_simpanan',
+        'total_selisih', 'total_peminjam']));
     }
 
     public function dashboard()
     {
+        $fotos = AnggotaModel::value('foto_anggota');
         $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
         $total_admin = User::where('level', 'admin')->count();
-        return view('anggota.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+        return view('anggota.dashboard',['foto'=>$fotos,'users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
     }
 
     public function showPengajuanPinjaman(){
@@ -107,6 +109,8 @@ class AnggotaController extends Controller
                 $nama_foto = $request->nrp . "-Foto." . $foto_extention;
                 $upload_path = 'foto_anggota/';
                 $request->file('foto_anggota')->move($upload_path, $nama_foto);
+                // isset($request['status']) ? $status = 'enabled' : $status ='disabled';
+
                     AnggotaModel::create([
                         'nrp' => $request['nrp'],
                         'nama_anggota' => $request['nama_anggota'],
@@ -118,7 +122,6 @@ class AnggotaController extends Controller
                         'level' => $request['level'],
                         'jabatan' => $request['jabatan'],
                         'bagian' => $request['bagian'],
-                        'status' => 'disabled',
                         'alamat_anggota' => $request['alamat_anggota'],
                         'foto_anggota' => $nama_foto,
                         ]);
@@ -128,7 +131,7 @@ class AnggotaController extends Controller
                         'name' => $request['nama_anggota'],
                         'email' => $request['email'],
                         'level' => $request['level'],
-                        'status' => 'disabled',
+                        'status' => 'enabled',
                         'password' => Hash::make($request['nrp'].'12345'),
                     ]);
                     //Alert::warning('Tambah pengguna berhasil !');
@@ -188,7 +191,15 @@ class AnggotaController extends Controller
                     'status' => 'disabled',
                     'alamat_anggota' => $request['alamat_anggota'],
                 ]);
-                    return redirect()->route('anggota.index');
+                User::create([
+                    'nrp' => $request['nrp'],
+                    'name' => $request['nama_anggota'],
+                    'email' => $request['email'],
+                    'level' => $request['level'],
+                    'status' => 'disabled',
+                    'password' => Hash::make($request['nrp'].'12345'),
+                ]);
+                return redirect()->route('anggota.index');
             }
         }
     }
