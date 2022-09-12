@@ -41,11 +41,9 @@
                             <th>Tgl Lahir</th>
                             <th>Tempat lahir</th>
                             <th>Kelamin</th>
-                            <th>Telp</th>
-                            <th>Email</th>
                             <th>Jabatan</th>
                             <th>Bagian</th>
-                            <th>Level</th>
+                            <th>Foto</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -58,11 +56,10 @@
                               <td>{{ $data->tgl_lahir }}</td>
                               <td>{{ ucwords($data->tempat_lahir) }}</td>
                               <td>{{ ucwords($data->jenis_kelamin) }}</td>
-                              <td>{{ $data->no_telepon }}</td>
-                              <td>{{ $data->email }}</td>
                               <td>{{ ucwords($data->jabatan) }}</td>
                               <td>{{ ucwords($data->bagian) }}</td>
-                              <td>{{ ucwords($data->level) }}</td>
+                              <td>@if(empty($data->foto_anggota)) <img src=""/> @else <img src="{{asset('/foto_anggota/'.$data->foto_anggota)}}" width="40px"/> @endif
+                              </td>
                               <td class="text-center">
                                 <form action="{{ route('anggota.destroy',$data->id) }}" method="POST">
                                   <a class="btn btn-info btn-sm" href="{{ route('anggota.show',$data->id) }}"><i class="la la-search"></i></a>

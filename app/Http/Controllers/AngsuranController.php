@@ -65,10 +65,10 @@ class AngsuranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AngsuranModel  $angsuranModel
+     * @param  \App\Models\AngsuranModel  $angsuran
      * @return \Illuminate\Http\Response
      */
-    public function show(AngsuranModel $angsuranModel)
+    public function show(AngsuranModel $angsuran)
     {
         //
     }
@@ -76,33 +76,52 @@ class AngsuranController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AngsuranModel  $angsuranModel
+     * @param  \App\Models\AngsuranModel  $angsuran
      * @return \Illuminate\Http\Response
      */
-    public function edit(AngsuranModel $angsuranModel)
+    public function edit(AngsuranModel $angsuran)
     {
-        //
+        return view('angsuran.edit',compact('angsuran'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AngsuranModel  $angsuranModel
+     * @param  \App\Models\AngsuranModel  $angsuran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AngsuranModel $angsuranModel)
+    public function update(Request $request, AngsuranModel $angsuran)
     {
-        //
+        $request->validate([
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
+            'angsuran_ke' => 'required',
+        ]);
+
+        $tanggal = strtotime($request['tanggal']);
+        $angsuran->update($request->all());
+        AngsuranModel::where('id',$request['id'])->update([
+            'no' => $request['no'],
+            'tanggal' => date('Y-m-d', $tanggal),
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'angsuran_ke' => $request['angsuran_ke'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->name,
+        ]);
+        return redirect()->route('angsuran.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AngsuranModel  $angsuranModel
+     * @param  \App\Models\AngsuranModel  $angsuran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AngsuranModel $angsuranModel)
+    public function destroy(AngsuranModel $angsuran)
     {
         //
     }

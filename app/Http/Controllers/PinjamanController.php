@@ -65,13 +65,14 @@ class PinjamanController extends Controller
         $tanggal = strtotime($request['tanggal']);
         PinjamanModel::create([
             'no' => $request['no'],
-            'tanggal' => $tanggal,
+            'tanggal' => date('Y-m-d', $tanggal),
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'angsuran' => $request['angsuran'],
             'keterangan' => $request['keterangan'],
             'admin' => Auth::user()->name,
-            'status' => 'Diajukan',
+            'status_pengajuan' => 'Diajukan',
+            'status_pinjaman' => 'Belum Pembayaran',
             ]);
         return redirect()->route('pinjaman.index');
     }
@@ -115,11 +116,11 @@ class PinjamanController extends Controller
             'jumlah' => 'required',
         ]);
 
-        //dd($request['style']);
+        $tanggal = strtotime($request['tanggal']);
         $pinjaman->update($request->all());
-         PinjamanModel::where('id',$request['id'])->update([
+        PinjamanModel::where('id',$request['id'])->update([
             'no' => $request['no'],
-            'tanggal' => $request['tanggal'],
+            'tanggal' => date('Y-m-d', $tanggal),
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'angsuran' => $request['angsuran'],

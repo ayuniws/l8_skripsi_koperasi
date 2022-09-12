@@ -25,6 +25,7 @@ class AnggotaModel extends Model
         'jabatan',
         'bagian',
         'level',
+        'foto_anggota'
     ];
 
     public function user()

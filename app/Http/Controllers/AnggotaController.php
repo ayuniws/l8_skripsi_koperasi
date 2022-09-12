@@ -101,50 +101,95 @@ class AnggotaController extends Controller
         ]);
 
         if (isset($request['add_login'])){
+            $foto_anggota = $request->file('foto_anggota');
+            if(isset($foto_anggota)){
+                $foto_extention = $foto_anggota->getClientOriginalExtension();
+                $nama_foto = $request->nrp . "-Foto." . $foto_extention;
+                $upload_path = 'foto_anggota/';
+                $request->file('foto_anggota')->move($upload_path, $nama_foto);
+                    AnggotaModel::create([
+                        'nrp' => $request['nrp'],
+                        'nama_anggota' => $request['nama_anggota'],
+                        'no_telepon' => $request['no_telepon'],
+                        'tgl_lahir' => $request['tgl_lahir'],
+                        'tempat_lahir' => $request['tempat_lahir'],
+                        'email' => $request['email'],
+                        'jenis_kelamin' => $request['jenis_kelamin'],
+                        'level' => $request['level'],
+                        'jabatan' => $request['jabatan'],
+                        'bagian' => $request['bagian'],
+                        'status' => 'disabled',
+                        'alamat_anggota' => $request['alamat_anggota'],
+                        'foto_anggota' => $nama_foto,
+                        ]);
 
-            AnggotaModel::create([
-                'nrp' => $request['nrp'],
-                'nama_anggota' => $request['nama_anggota'],
-                'no_telepon' => $request['no_telepon'],
-                'tgl_lahir' => $request['tgl_lahir'],
-                'tempat_lahir' => $request['tempat_lahir'],
-                'email' => $request['email'],
-                'jenis_kelamin' => $request['jenis_kelamin'],
-                'level' => $request['level'],
-                'jabatan' => $request['jabatan'],
-                'bagian' => $request['bagian'],
-                'status' => 'disabled',
-                'alamat_anggota' => $request['alamat_anggota'],
-                ]);
-
-            User::create([
-                'nrp' => $request['nrp'],
-                'name' => $request['nama_anggota'],
-                'email' => $request['email'],
-                'level' => $request['level'],
-                'status' => 'disabled',
-                'password' => Hash::make($request['nrp'].'12345'),
-            ]);
-            //Alert::warning('Tambah pengguna berhasil !');
-            return redirect()->route('anggota.index');
+                    User::create([
+                        'nrp' => $request['nrp'],
+                        'name' => $request['nama_anggota'],
+                        'email' => $request['email'],
+                        'level' => $request['level'],
+                        'status' => 'disabled',
+                        'password' => Hash::make($request['nrp'].'12345'),
+                    ]);
+                    //Alert::warning('Tambah pengguna berhasil !');
+                    return redirect()->route('anggota.index');
+                }else{
+                        AnggotaModel::create([
+                            'nrp' => $request['nrp'],
+                            'nama_anggota' => $request['nama_anggota'],
+                            'no_telepon' => $request['no_telepon'],
+                            'tgl_lahir' => $request['tgl_lahir'],
+                            'tempat_lahir' => $request['tempat_lahir'],
+                            'email' => $request['email'],
+                            'jenis_kelamin' => $request['jenis_kelamin'],
+                            'level' => $request['level'],
+                            'jabatan' => $request['jabatan'],
+                            'bagian' => $request['bagian'],
+                            'status' => 'disabled',
+                            'alamat_anggota' => $request['alamat_anggota'],
+                        ]);
+                            return redirect()->route('anggota.index');
+                }
         }else{
-            AnggotaModel::create([
-                'nrp' => $request['nrp'],
-                'nama_anggota' => $request['nama_anggota'],
-                'no_telepon' => $request['no_telepon'],
-                'tgl_lahir' => $request['tgl_lahir'],
-                'tempat_lahir' => $request['tempat_lahir'],
-                'email' => $request['email'],
-                'jenis_kelamin' => $request['jenis_kelamin'],
-                'level' => $request['level'],
-                'jabatan' => $request['jabatan'],
-                'bagian' => $request['bagian'],
-                'status' => 'disabled',
-                'alamat_anggota' => $request['alamat_anggota'],
-            ]);
-
-            //Alert::warning('Tambah pengguna berhasil !');
-            return redirect()->route('anggota.index');
+            $foto_anggota = $request->file('foto_anggota');
+            if(isset($foto_anggota)){
+                    $foto_extention = $foto_anggota->getClientOriginalExtension();
+                    $nama_foto = $request->nrp . "-Foto." . $foto_extention;
+                    $upload_path = 'foto_anggota/';
+                    $request->file('foto_anggota')->move($upload_path, $nama_foto);
+                    AnggotaModel::create([
+                        'nrp' => $request['nrp'],
+                        'nama_anggota' => $request['nama_anggota'],
+                        'no_telepon' => $request['no_telepon'],
+                        'tgl_lahir' => $request['tgl_lahir'],
+                        'tempat_lahir' => $request['tempat_lahir'],
+                        'email' => $request['email'],
+                        'jenis_kelamin' => $request['jenis_kelamin'],
+                        'level' => $request['level'],
+                        'jabatan' => $request['jabatan'],
+                        'bagian' => $request['bagian'],
+                        'status' => 'disabled',
+                        'alamat_anggota' => $request['alamat_anggota'],
+                        'foto_anggota' => $nama_foto,
+                    ]);
+                        return redirect()->route('anggota.index');
+            }else{
+                AnggotaModel::create([
+                    'nrp' => $request['nrp'],
+                    'nama_anggota' => $request['nama_anggota'],
+                    'no_telepon' => $request['no_telepon'],
+                    'tgl_lahir' => $request['tgl_lahir'],
+                    'tempat_lahir' => $request['tempat_lahir'],
+                    'email' => $request['email'],
+                    'jenis_kelamin' => $request['jenis_kelamin'],
+                    'level' => $request['level'],
+                    'jabatan' => $request['jabatan'],
+                    'bagian' => $request['bagian'],
+                    'status' => 'disabled',
+                    'alamat_anggota' => $request['alamat_anggota'],
+                ]);
+                    return redirect()->route('anggota.index');
+            }
         }
     }
 

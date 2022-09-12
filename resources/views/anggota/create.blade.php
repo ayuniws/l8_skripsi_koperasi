@@ -25,7 +25,7 @@
                   <div class="card-body">
                     <div class="card-text">
 
-                    <form method="POST" action="{{ route('anggota.store') }}" class="form" novalidate>@csrf
+                    <form method="POST" action="{{ route('anggota.store') }}" class="form" novalidate enctype="multipart/form-data">@csrf
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
@@ -121,9 +121,19 @@
                               </select></div>
                           </div>
                         </div>
-                        <div class="form-group">
-                          <label for="companyName">Alamat</label>
-                          <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat"></textarea>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="projectinput2">Foto Anggota</label>
+                                  <input type="file" id="foto_anggota" class="form-control" placeholder="Foto Anggota" name="foto_anggota">
+                                </div>
+                              </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <label for="companyName">Alamat</label>
+                                <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat"></textarea>
+                                </div>
+                            </div>
                         </div>
                       </div>
                       <div class="form-actions right">

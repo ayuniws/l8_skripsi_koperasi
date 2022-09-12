@@ -53,7 +53,7 @@ class SimpananController extends Controller
         $tanggal = strtotime($request['tanggal']);
         SimpananModel::create([
             'no' => $request['no'],
-            'tanggal' => $tanggal,
+            'tanggal' => date('Y-m-d', $tanggal),
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'keterangan' => $request['keterangan'],
@@ -101,11 +101,11 @@ class SimpananController extends Controller
             'jumlah' => 'required',
         ]);
 
-        //dd($request['style']);
+        $tanggal = strtotime($request['tanggal']);
         $simpanan->update($request->all());
          SimpananModel::where('id',$request['id'])->update([
             'no' => $request['no'],
-            'tanggal' => $request['tanggal'],
+            'tanggal' => date('Y-m-d', $tanggal),
             'nrp' => $request['nrp'],
             'jumlah' => $request['jumlah'],
             'keterangan' => $request['keterangan'],
