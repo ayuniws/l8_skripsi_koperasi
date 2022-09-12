@@ -26,7 +26,18 @@
                     <div class="card-text">
 
                     <form method="POST" action="{{ route('anggota.store') }}" class="form" novalidate>@csrf
-                      <div class="form-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="" id="add_login" name="add_login" checked>
+                                        Buat Akun Login
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </div>
+                        </div>
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
@@ -37,7 +48,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput2">Nama Lengkap</label>
-                              <input type="text" id="name" class="form-control" placeholder="Last Name" name="name">
+                              <input type="text" id="nama_anggota" class="form-control" placeholder="Nama Lengkap" name="nama_anggota">
                             </div>
                           </div>
                         </div>
@@ -45,7 +56,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Telp</label>
-                              <input type="text" id="telp" class="form-control" placeholder="telp" name="telp">
+                              <input type="text" id="no_telepon" class="form-control" placeholder="Telp" name="no_telepon">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -74,8 +85,9 @@
                             <div class="form-group">
                               <label for="projectinput1">Jabatan</label>
                               <select id="jabatan" name="jabatan" class="form-control">
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
+                                @foreach($jabatan as $data)
+                                <option value="{{$data->kode_jabatan}}">{{$data->nama_jabatan}}</option>
+                                @endforeach
                               </select>
                             </div>
                           </div>
@@ -83,16 +95,18 @@
                             <div class="form-group">
                               <label for="projectinput2">Bagian</label>
                               <select id="bagian" name="bagian" class="form-control">
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
-                              </select></div>
+                                @foreach($bagian as $data)
+                                <option value="{{$data->kode_bagian}}">{{$data->nama_bagian}}</option>
+                                @endforeach
+                              </select>
                             </div>
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput3">Kelamin</label>
-                              <select id="kelamin" name="kelamin" class="form-control">
+                              <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">
                                 <option value="L">Laki-Laki</option>
                                 <option value="P">Perempuan</option>
                               </select></div>
@@ -109,7 +123,7 @@
                         </div>
                         <div class="form-group">
                           <label for="companyName">Alamat</label>
-                          <textarea id="alamat" rows="5" class="form-control" name="alamat" placeholder="Alamat"></textarea>
+                          <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat"></textarea>
                         </div>
                       </div>
                       <div class="form-actions right">

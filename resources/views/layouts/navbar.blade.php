@@ -5,7 +5,7 @@
         <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
         <li class="nav-item">
           <a class="navbar-brand" href="index.html">
-            <img class="brand-logo" alt="modern admin logo" src="{{ asset('modernadmin/app-assets/images/logo/logokoperasi.png') }}">
+            <img class="brand-logo" alt="modern admin logo" src="{{ asset('modernadmin/app-assets/images/logo/logo.png') }}">
             <h3 class="brand-text">{{ config('app.name') }}</h3>
           </a>
         </li>

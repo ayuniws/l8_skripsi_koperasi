@@ -44,10 +44,16 @@ class PenggunaController extends Controller
 
 
         return view('admin.dashboard',
-        ['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user,
-        'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
-        'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
-        'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);
+        compact(['user','total_user','total_active_user',
+        'total_inactive_user' , 'total_admin',
+        'total_pinjaman', 'total_simpanan',
+        'total_selisih', 'total_peminjam']));
+
+        // return view('admin.dashboard',
+        // ['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user,
+        // 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin,
+        // 'total_pinjamans' => $total_pinjaman, 'total_simpanans' => $total_simpanan,
+        // 'total_selisihs' => $total_selisih, 'total_peminjams' => $total_peminjam]);
     }
 
 

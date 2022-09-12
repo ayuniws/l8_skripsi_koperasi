@@ -22,7 +22,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="info">{{ $total_simpanans }}</h3>
+                    <h3 class="info">{{ $total_simpanan }}</h3>
                     <h6>Total Simpanan</h6>
                   </div>
                   <div>
@@ -43,7 +43,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="warning">{{ $total_pinjamans }}</h3>
+                    <h3 class="warning">{{ $total_pinjaman }}</h3>
                     <h6>Total Pinjaman</h6>
                   </div>
                   <div>
@@ -64,7 +64,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="success">{{ $total_peminjams }}</h3>
+                    <h3 class="success">{{ $total_peminjam }}</h3>
                     <h6>Total Peminjam</h6>
                   </div>
                   <div>
@@ -85,7 +85,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">{{ $total_selisihs }}</h3>
+                    <h3 class="danger">{{ $total_selisih }}</h3>
                     <h6>Total Piutang</h6>
                   </div>
                   <div>
@@ -108,7 +108,7 @@
             <div class="card-body">
               <div class="media d-flex">
                 <div class="media-body text-left">
-                  <h3 class="info">{{ $total_inactive_users }}</h3>
+                  <h3 class="info">{{ $total_inactive_user }}</h3>
                   <h6>Pengguna Non Aktif</h6>
                 </div>
                 <div>
@@ -129,7 +129,7 @@
             <div class="card-body">
               <div class="media d-flex">
                 <div class="media-body text-left">
-                  <h3 class="warning">{{ $total_active_users }}</h3>
+                  <h3 class="warning">{{ $total_active_user }}</h3>
                   <h6>Pengguna Aktif</h6>
                 </div>
                 <div>
@@ -150,7 +150,7 @@
             <div class="card-body">
               <div class="media d-flex">
                 <div class="media-body text-left">
-                  <h3 class="success">{{ $total_users }}</h3>
+                  <h3 class="success">{{ $total_user }}</h3>
                   <h6>Total Pengguna</h6>
                 </div>
                 <div>
@@ -171,7 +171,7 @@
             <div class="card-body">
               <div class="media d-flex">
                 <div class="media-body text-left">
-                  <h3 class="danger">{{ $total_admins }}</h3>
+                  <h3 class="danger">{{ $total_admin }}</h3>
                   <h6>Pengguna Level Admin</h6>
                 </div>
                 <div>
@@ -222,10 +222,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($users as $data )
+                        @foreach ($user as $data )
                           <tr>
                             <td>{{ $data->nrp }}</td>
-                            <td>{{ ucwords($data->anggota->value->nama_anggota) }}</td>
+                            <td>{{ $data->anggota->nama_anggota }} </td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->level }}</td>
                             <td>{{ $data->status }}</td>
