@@ -16,22 +16,14 @@ class User extends Authenticatable
 
     protected $filliable = [
         'nrp',
-        'nama_anggota',
-        'alamat_anggota',
-        'tgl_lahir',
-        'tempat_lahir',
-        'jenis_kelamin',
-        'no_telepon',
+        'name',
         'email',
-        'jabatan',
-        'bagian',
         'level',
         'status',
-        'password'
     ];
 
     public function anggota(){
-        return $this->hasOne(Anggota::class);
+        return $this->hasOne(AnggotaModel::class, 'nrp', 'nrp');
 
     }
 

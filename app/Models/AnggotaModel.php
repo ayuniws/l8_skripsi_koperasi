@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnggotaModel extends Model
 {
-    protected $table = 'users';
+    protected $table = 'tbl_m_anggota';
     protected $primarykey = 'nrp';
     public $timestamps = false;
 
@@ -28,7 +28,7 @@ class AnggotaModel extends Model
 
     public function user()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class,'nrp','nrp');
     }
 
 }
