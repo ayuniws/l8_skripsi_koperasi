@@ -60,6 +60,11 @@ Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaCont
 Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
 Route::get('/ketua/pengajuan-diajukan', [App\Http\Controllers\AnggotaController::class, 'showPengajuanPinjaman'])->name('pinjaman.pengajuan-diajukan');
 
+//laporan
+Route::get('/laporan/laporan-angsuran', [App\Http\Controllers\LaporanController::class, 'laporanAngsuran'])->name('laporan.angsuran');
+Route::get('/laporan/laporan-pinjaman', [App\Http\Controllers\LaporanController::class, 'laporanPinjaman'])->name('laporan.pinjaman');
+Route::get('/laporan/laporan-simpanan', [App\Http\Controllers\LaporanController::class, 'laporanSimpanan'])->name('laporan.simpanan');
+
 //Jabatan
 Route::resource('jabatan',JabatanController::class);
 //Bagian

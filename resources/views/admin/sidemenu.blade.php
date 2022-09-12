@@ -43,11 +43,11 @@
       </li>
       <li class="active"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Angsuran</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('laporan.angsuran') }}" data-i18n="nav.dash.ecommerce">Transaksi Angsuran</a>
           </li>
-          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('laporan.pinjaman') }}" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>
           </li>
-          <li class="menu-item"><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('laporan.simpanan') }}" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
         </ul>
       </li>
