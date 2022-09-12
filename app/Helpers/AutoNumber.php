@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\AngsuranModel;
 use App\Models\BagianModel;
 use App\Models\JabatanModel;
 use App\Models\PinjamanModel;
@@ -62,6 +63,19 @@ class AutoNumber
         $now = Carbon::now();
         $ymd = $now->year . $now->month . $now->day;
         $get_awal = PinjamanModel::all()->last();
+        if($get_awal === null){
+            $kode = $prefix.$ymd.'001';
+        }else{
+            $no = Str::substr($get_awal->no,11,3);
+            $kode = $prefix.$ymd.sprintf('%03s',(int)$no+1);
+        }
+        return $kode;
+    }
+    public static function getAngsuranAutoNo(){
+        $prefix = 'TRA-';
+        $now = Carbon::now();
+        $ymd = $now->year . $now->month . $now->day;
+        $get_awal = AngsuranModel::all()->last();
         if($get_awal === null){
             $kode = $prefix.$ymd.'001';
         }else{

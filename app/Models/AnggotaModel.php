@@ -32,4 +32,10 @@ class AnggotaModel extends Model
     	return $this->belongsTo(User::class,'nrp','nrp');
     }
 
+    public function angsuran(){
+        return $this->belongsTo(AngsuranModel::class,'nrp','nrp');
+
+    }
+
+
 }

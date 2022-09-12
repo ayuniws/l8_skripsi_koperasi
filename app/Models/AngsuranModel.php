@@ -13,7 +13,6 @@ class AngsuranModel extends Model
     public $timestamps = false;
     protected $fillable = [
         'no',
-        'no_pinjaman',
         'nrp',
         'tanggal',
         'jumlah',
@@ -21,4 +20,8 @@ class AngsuranModel extends Model
         'keterangan',
         'admin'
     ];
+
+    public function anggota(){
+        return $this->hasMany(AnggotaModel::class,'nrp','nrp');
+    }
 }

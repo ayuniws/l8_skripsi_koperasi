@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\AngsuranModel;
 use Illuminate\Http\Request;
+use App\Helpers\AutoNumber;
+use App\Models\AnggotaModel;
+use Illuminate\Support\Facades\Auth;
 
 class AngsuranController extends Controller
 {
@@ -14,7 +17,8 @@ class AngsuranController extends Controller
      */
     public function index()
     {
-        //
+        $angsuran = AngsuranModel::all();
+        return view('angsuran.index',compact('angsuran'));
     }
 
     /**
@@ -24,7 +28,9 @@ class AngsuranController extends Controller
      */
     public function create()
     {
-        //
+        $no = AutoNumber::getAngsuranAutoNo();
+        $anggota=AnggotaModel::all();
+        return view('angsuran.create',compact(['anggota','no']));
     }
 
     /**
@@ -35,7 +41,25 @@ class AngsuranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no' => 'required',
+            'tanggal' => 'required',
+            'nrp' => 'required',
+            'jumlah' => 'required',
+            'angsuran_ke' => 'required',
+        ]);
+
+        $tanggal = strtotime($request['tanggal']);
+        AngsuranModel::create([
+            'no' => $request['no'],
+            'tanggal' => date('Y-m-d', $tanggal),
+            'nrp' => $request['nrp'],
+            'jumlah' => $request['jumlah'],
+            'angsuran_ke' => $request['angsuran_ke'],
+            'keterangan' => $request['keterangan'],
+            'admin' => Auth::user()->nrp,
+            ]);
+            return redirect()->route('angsuran.index');
     }
 
     /**
