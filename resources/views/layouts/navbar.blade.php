@@ -24,7 +24,7 @@
           <li class="dropdown dropdown-user nav-item">
             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
               <span class="mr-1">
-                <span class="user-name text-bold-400">{{ ucwords(Auth::user()->nama_anggota) }}, [{{ Auth::user()->level }}]</span>
+                <span class="user-name text-bold-400">{{ ucwords(Auth::user()->name) }}, [{{ Auth::user()->level }}]</span>
               </span>
               <span class="avatar avatar-online">
                 <img src="{{ asset('modernadmin/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar"><i></i></span>

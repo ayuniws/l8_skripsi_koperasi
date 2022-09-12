@@ -90,7 +90,7 @@ class AnggotaController extends Controller
             'nrp' => 'required',
             'nama_anggota' => 'required',
             'alamat_anggota' => 'required',
-            'tanggal_lahir' => 'required',
+            'tgl_lahir' => 'required',
             'tempat_lahir' => 'required',
             'no_telepon' => 'required',
             'email' => 'required',
@@ -106,6 +106,8 @@ class AnggotaController extends Controller
                 'nrp' => $request['nrp'],
                 'nama_anggota' => $request['nama_anggota'],
                 'no_telepon' => $request['no_telepon'],
+                'tgl_lahir' => $request['tgl_lahir'],
+                'tempat_lahir' => $request['tempat_lahir'],
                 'email' => $request['email'],
                 'jenis_kelamin' => $request['jenis_kelamin'],
                 'level' => $request['level'],
@@ -113,16 +115,16 @@ class AnggotaController extends Controller
                 'bagian' => $request['bagian'],
                 'status' => 'disabled',
                 'alamat_anggota' => $request['alamat_anggota'],
-            ]);
+                ]);
 
-            // User::create([
-            //     'nrp' => $request['nrp'],
-            //     'name' => $request['nama_anggota'],
-            //     'email' => $request['email'],
-            //     'level' => $request['level'],
-            //     'status' => 'disabled',
-            //     'password' => Hash::make('12345'),
-            // ]);
+            User::create([
+                'nrp' => $request['nrp'],
+                'name' => $request['nama_anggota'],
+                'email' => $request['email'],
+                'level' => $request['level'],
+                'status' => 'disabled',
+                'password' => Hash::make($request['nrp'].'12345'),
+            ]);
             //Alert::warning('Tambah pengguna berhasil !');
             return redirect()->route('anggota.index');
         }else{
@@ -130,6 +132,8 @@ class AnggotaController extends Controller
                 'nrp' => $request['nrp'],
                 'nama_anggota' => $request['nama_anggota'],
                 'no_telepon' => $request['no_telepon'],
+                'tgl_lahir' => $request['tgl_lahir'],
+                'tempat_lahir' => $request['tempat_lahir'],
                 'email' => $request['email'],
                 'jenis_kelamin' => $request['jenis_kelamin'],
                 'level' => $request['level'],

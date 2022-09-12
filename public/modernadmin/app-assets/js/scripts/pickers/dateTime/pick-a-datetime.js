@@ -46,8 +46,10 @@
 	// Format options
 	$('.pickadate-format').pickadate({
 		// Escape any 'rule' characters with an exclamation mark (!).
-		format: 'Selecte!d Date : dddd, dd mmmm, yyyy',
-		formatSubmit: 'mm/dd/yyyy',
+		// format: 'dddd, dd mmmm, yyyy',
+		format: 'yyyy-mm-dd',
+		//formatSubmit: 'mm/dd/yyyy',
+		formatSubmit: 'yyyy-mm-dd',
 		hiddenPrefix: 'prefix__',
 		hiddenSuffix: '__suffix'
 	});
@@ -115,7 +117,8 @@
 
 	// Picker Translations
 	$( '.pickadate-translations' ).pickadate({
-		formatSubmit: 'dd/mm/yyyy',
+		//formatSubmit: 'dd/mm/yyyy',
+		formatSubmit: 'yyyy-mm-dd',
 		monthsFull: [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
 		monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
 		weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],

@@ -70,7 +70,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Tanggal Lahir</label>
-                              <input type="date" id="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir">
+                              <input type="text" id="tgl_lahir" class="form-control pickadate-format" placeholder="Tanggal Lahir" name="tgl_lahir">
                             </div>
                           </div>
                           <div class="col-md-6">

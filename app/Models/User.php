@@ -14,12 +14,13 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primarykey = 'nrp';
 
-    protected $filliable = [
+    protected $fillable = [
         'nrp',
         'name',
         'email',
         'level',
         'status',
+        'password',
     ];
 
     public function anggota(){
@@ -27,10 +28,10 @@ class User extends Authenticatable
 
     }
 
-    protected $hidden = [
-        'password',
-        //'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password',
+    //     //'remember_token',
+    // ];
 
     /**
      * The attributes that should be cast.

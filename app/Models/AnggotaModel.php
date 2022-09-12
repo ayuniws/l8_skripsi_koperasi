@@ -13,7 +13,7 @@ class AnggotaModel extends Model
     public $timestamps = false;
 
 
-    protected $filliable = [
+    protected $fillable = [
         'nrp',
         'nama_anggota',
         'alamat_anggota',
@@ -24,6 +24,7 @@ class AnggotaModel extends Model
         'email',
         'jabatan',
         'bagian',
+        'level',
     ];
 
     public function user()

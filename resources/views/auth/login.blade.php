@@ -11,7 +11,7 @@
               <div class="card border-grey border-lighten-3 m-0">
                 <div class="card-header border-0">
                   <div class="card-title text-center">
-                    <img src="{{ asset('modernadmin/app-assets/images/logo/logokoperasi.png') }}" alt="branding logo">
+                    <img src="{{ asset('modernadmin/app-assets/images/logo/logo.png') }}" alt="branding logo">
                   </div>
                   <p class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
                     <span>Masukan Username dan Password Anda</span>
