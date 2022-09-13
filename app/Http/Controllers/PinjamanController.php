@@ -21,6 +21,24 @@ class PinjamanController extends Controller
         return view('pinjaman.index',compact('pinjaman'));
     }
 
+    public function approve(PinjamanModel $pinjaman)
+    {
+        //dd($pinjaman->id);
+        PinjamanModel::where('id',$pinjaman->id)->update([
+            'status_pengajuan' => 'Disetujui',
+        ]);
+        return redirect()->route('pinjaman.pengajuan-diajukan')->with('Succes','Data Berhasil di Update');
+    }
+
+    public function reject(PinjamanModel $pinjaman)
+    {
+        PinjamanModel::where('id',$pinjaman->id)->update([
+            'status_pengajuan' => 'Ditolak',
+        ]);
+        return redirect()->route('pinjaman.pengajuan-diajukan')->with('Succes','Data Berhasil di Update');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
