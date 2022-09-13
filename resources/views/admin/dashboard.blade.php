@@ -187,7 +187,6 @@
         </div>
       </div>
     </div>
-
     <div class="content-body">
       <!-- HTML5 export buttons table -->
       <section id="html5">
