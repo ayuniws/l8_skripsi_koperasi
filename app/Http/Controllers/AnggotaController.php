@@ -15,6 +15,7 @@ use App\Models\PinjamanModel;
 use App\Models\SimpananModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 class AnggotaController extends Controller
@@ -34,6 +35,11 @@ class AnggotaController extends Controller
     public function dashboardKetua(){
         // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
         $foto = AnggotaModel::value('foto_anggota');
+        $anggota = AnggotaModel::all();
+        $total_anggota = AnggotaModel::count();
+        $total_angsuran = AngsuranModel::sum('jumlah');
+        $total_angsuran_today = AngsuranModel::where('tanggal',Carbon::now()->format('Y-m-d'))->sum('jumlah');
+        $total_angsuran_month = AngsuranModel::whereMonth('tanggal',Carbon::now()->month)->sum('jumlah');
         $user = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
@@ -47,7 +53,7 @@ class AnggotaController extends Controller
 
 
         return view('ketua.dashboard',
-        compact(['foto','user','total_user','total_active_user',
+        compact(['total_angsuran_month','total_angsuran_today','total_angsuran','total_anggota','anggota','foto','user','total_user','total_active_user',
         'total_inactive_user' , 'total_admin',
         'total_pinjaman', 'total_simpanan',
         'total_selisih', 'total_peminjam']));
