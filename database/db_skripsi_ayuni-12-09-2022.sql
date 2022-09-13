@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 12/09/2022 20:48:00
+ Date: 13/09/2022 10:12:53
 */
 
 SET NAMES utf8mb4;
@@ -98,7 +98,7 @@ CREATE TABLE `tbl_m_anggota`  (
   `foto_anggota` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `nrp`) USING BTREE,
   UNIQUE INDEX `nrp`(`nrp` ASC, `nama_anggota` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_m_anggota
@@ -111,6 +111,7 @@ INSERT INTO `tbl_m_anggota` VALUES (10, '33333', 'Aiman Hakim', 'Jl Nusantara 2'
 INSERT INTO `tbl_m_anggota` VALUES (11, '44444', 'Ghaida', 'Jl Kesehatan', '2022-08-30', 'Tangerang', 'P', '0875675675', 'ghaida@gmail.com', '003', 'J002', 'anggota', NULL);
 INSERT INTO `tbl_m_anggota` VALUES (12, '55555', 'Boby', 'Jl ada fotonya', '2022-09-07', 'Tangerang', 'L', '77657657', 'boby@gmail.com', '002', 'J004', 'anggota', '55555-Foto.png');
 INSERT INTO `tbl_m_anggota` VALUES (14, '666666', 'Deni Plate', 'Jl XYZ', '2022-09-06', 'Tangerang', 'L', '868678', 'deni@gmail.com', '003', 'J003', 'anggota', '666666-Foto.png');
+INSERT INTO `tbl_m_anggota` VALUES (16, '77777', 'Ada login', 'Jl Tiga Puluh Dua', '2022-09-13', 'Tangerang', 'P', '0875675675', 'adalogin@gmail.com', '004', 'J002', 'anggota', '77777-Foto.png');
 
 -- ----------------------------
 -- Table structure for tbl_m_bagian
@@ -184,12 +185,15 @@ CREATE TABLE `tbl_tr_angsuran`  (
   `angsuran_ke` tinyint NOT NULL,
   `keterangan` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `admin` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `nrp`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_tr_angsuran
 -- ----------------------------
+INSERT INTO `tbl_tr_angsuran` VALUES (1, 'TRA-2022913001', '22222', '2022-09-13', 50000, 1, 'cicilan ke 1', 'dedy', '2022-09-13 01:39:55', '2022-09-13 01:39:55');
 
 -- ----------------------------
 -- Table structure for tbl_tr_pinjaman
@@ -206,13 +210,15 @@ CREATE TABLE `tbl_tr_pinjaman`  (
   `admin` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status_pengajuan` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status_pinjaman` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `nrp`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_tr_pinjaman
 -- ----------------------------
-INSERT INTO `tbl_tr_pinjaman` VALUES (1, 'TRP-2022912001', '2022-09-12', '23456', 1000000, 12, 'Untuk beli motor', 'dedy', 'Diajukan', 'Belum Pembayaran');
+INSERT INTO `tbl_tr_pinjaman` VALUES (1, 'TRP-2022912001', '2022-09-12', '23456', 1000000, 12, 'Untuk beli motor', 'dedy', 'Diajukan', 'Belum Pembayaran', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tbl_tr_simpanan
@@ -226,6 +232,8 @@ CREATE TABLE `tbl_tr_simpanan`  (
   `jumlah` double(10, 0) NOT NULL,
   `keterangan` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `admin` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `nrp`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -249,17 +257,18 @@ CREATE TABLE `users`  (
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `nrp_unik`(`nrp` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, '22222', 'wafa', 'wafasa@gmail.com', '$2y$10$x6UaER5HLsqPaiPMWk1NreM.0atk39HahcBvT.1hDHs2JNHh9XELG', 'anggota', 'enabled', NULL, NULL);
 INSERT INTO `users` VALUES (2, '12345', 'ayuni wulan sari', 'ayuni.wulansari06@gmail.com', '$2y$10$fHhn0QwpO/4zELINikC75OeKKSpzJlzP1gYMutGcLRFN5iG1clmoK', 'admin', 'enabled', '2022-08-28 04:00:19', '2022-08-28 04:00:19');
-INSERT INTO `users` VALUES (3, '23456', 'gytafitri', 'gytafitri@gmail.com', '$2y$10$fHhn0QwpO/4zELINikC75OeKKSpzJlzP1gYMutGcLRFN5iG1clmoK', 'ketua', 'enabled', NULL, NULL);
+INSERT INTO `users` VALUES (3, '23456', 'gytafitri', 'gytafitri@gmail.com', '$2y$10$x6UaER5HLsqPaiPMWk1NreM.0atk39HahcBvT.1hDHs2JNHh9XELG', 'ketua', 'enabled', NULL, NULL);
 INSERT INTO `users` VALUES (4, '11111', 'dedy', 'dedy@gmail.com', '$2y$10$x6UaER5HLsqPaiPMWk1NreM.0atk39HahcBvT.1hDHs2JNHh9XELG', 'admin', 'enabled', NULL, NULL);
 INSERT INTO `users` VALUES (5, '33333', 'Aiman Hakim', 'aiman@gmail.com', '$2y$10$XwBLdKHiYDTChSe5muBrcOEl27A39.adO1OAdJuM5JQblFZV3hJUy', 'anggota', 'disabled', '2022-09-12 08:03:40', '2022-09-12 08:03:40');
 INSERT INTO `users` VALUES (6, '55555', 'Boby', 'boby@gmail.com', '$2y$10$64rngN8h9OE74xtt5.7MfOjilLOBq4LEsVnbdJkE2GuLCyfMPSzXq', 'anggota', 'disabled', '2022-09-12 13:29:43', '2022-09-12 13:29:43');
+INSERT INTO `users` VALUES (7, '77777', 'Ada login', 'adalogin@gmail.com', '$2y$10$p6xKX6vHnJG68sTdIYnfTu9c9Vao9XhppbF4eTc6u8IXpuw7kiRN6', 'anggota', 'enabled', '2022-09-12 22:41:52', '2022-09-12 22:41:52');
 
 -- ----------------------------
 -- Table structure for users_anggota
