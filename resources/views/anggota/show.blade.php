@@ -1,7 +1,14 @@
 @extends('layouts.template')
 @section('sidemenu')
-  @include('admin.sidemenu')
+    @if (Auth::user()->level == 'admin')
+        @include('admin.sidemenu')
+    @elseif (Auth::user()->level == 'anggota')
+        @include('anggota.sidemenu')
+    @elseif (Auth::user()->level == 'ketua')
+        @include('ketua.sidemenu')
+    @endif
 @endsection
+
 @section('content')
 <div class="app-content content">
     <div class="content-wrapper">

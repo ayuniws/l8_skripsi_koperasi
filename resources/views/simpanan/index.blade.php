@@ -34,7 +34,9 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('simpanan.create') }}">Add TR Simpanan</a>
+                        @if (Auth::user()->level == 'admin')
+                            <a class="btn btn-success" href="{{ route('simpanan.create') }}">Add TR Simpanan</a>
+                        @endif
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>

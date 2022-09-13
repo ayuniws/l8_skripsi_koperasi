@@ -1,6 +1,10 @@
 @extends('layouts.template')
 @section('sidemenu')
-  @include('admin.sidemenu')
+    @if (Auth::user()->level == 'admin')
+        @include('admin.sidemenu')
+    @elseif (Auth::user()->level == 'ketua')
+        @include('ketua.sidemenu')
+    @endif
 @endsection
 @section('data-tables')
 <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
@@ -37,9 +41,6 @@
                           <tr>
                             <th>NRP</th>
                             <th>Nama Anggota</th>
-                            <th>Alamat Anggota</th>
-                            <th>Tgl Lahir</th>
-                            <th>Tempat lahir</th>
                             <th>Kelamin</th>
                             <th>Jabatan</th>
                             <th>Bagian</th>
@@ -52,9 +53,6 @@
                             <tr>
                               <td>{{ $data->nrp }}</td>
                               <td>{{ ucwords($data->nama_anggota) }}</td>
-                              <td>{{ ucfirst($data->alamat_anggota) }}</td>
-                              <td>{{ $data->tgl_lahir }}</td>
-                              <td>{{ ucwords($data->tempat_lahir) }}</td>
                               <td>{{ ucwords($data->jenis_kelamin) }}</td>
                               <td>{{ ucwords($data->jabatan) }}</td>
                               <td>{{ ucwords($data->bagian) }}</td>

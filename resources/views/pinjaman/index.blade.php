@@ -1,12 +1,10 @@
 @extends('layouts.template')
 @section('sidemenu')
-@section('sidemenu')
     @if (Auth::user()->level == 'admin')
         @include('admin.sidemenu')
     @elseif (Auth::user()->level == 'ketua')
         @include('ketua.sidemenu')
     @endif
-@endsection
 @endsection
 @section('data-tables')
 <link rel="stylesheet" type="text/css" href="{{ asset('modernadmin/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
@@ -36,8 +34,10 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('pinjaman.create') }}">Add TR Pinjaman</a>
-                  </div>
+                        @if (Auth::user()->level == 'admin')
+                            <a class="btn btn-success" href="{{ route('pinjaman.create') }}">Add TR Pinjaman</a>
+                        @endif
+                    </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>

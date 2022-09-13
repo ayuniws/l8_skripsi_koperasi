@@ -53,6 +53,7 @@ Route::get('/anggota/{anggota}/edit', [App\Http\Controllers\AnggotaController::c
 Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'update'])->name('anggota.update');
 Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
 Route::get('/anggota/{anggota}', [App\Http\Controllers\AnggotaController::class, 'show'])->name('anggota.show');
+
 //ketua
 Route::get('/ketua/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('ketua.show');
 Route::get('/ketua/dashboard', [App\Http\Controllers\AnggotaController::class, 'dashboardKetua'])->name('ketua.dashboard');

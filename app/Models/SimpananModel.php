@@ -10,7 +10,7 @@ class SimpananModel extends Model
     use HasFactory;
     protected $table = 'tbl_tr_simpanan';
     protected $primary_key='id';
-    public $timestamps = false;
+    // public $timestamps = false;
     protected $fillable = [
         'no',
         'tanggal',

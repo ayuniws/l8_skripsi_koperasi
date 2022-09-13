@@ -6,7 +6,7 @@
         data-placement="right" data-original-title="Layouts"></i>
       </li>
       <li class="active"><a href="{{ route('anggota.dashboard') }}"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a></li>
-      <li class="active"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.templates.main">Profile</span></a></li>
+      <li class="active"><a href="{{ route('anggota.show', Auth::user()->anggota->id) }}"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.templates.main">Profile</span></a></li>
       <li class="active"><a href="#"><i class="la la-bank"></i><span class="menu-title" data-i18n="nav.dash.main">Transaksi</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">Lihat Info Simpanan</a>

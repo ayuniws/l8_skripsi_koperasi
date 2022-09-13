@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\PinjamanModel;
 use App\Models\SimpananModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class AnggotaController extends Controller
@@ -53,13 +55,17 @@ class AnggotaController extends Controller
 
     public function dashboard()
     {
-        $fotos = AnggotaModel::value('foto_anggota');
-        $user = User::all();
-        $total_user = User::count();
-        $total_active_user = User::where('status', 'enabled')->count();
-        $total_inactive_user = User::where('status', 'disabled')->count();
-        $total_admin = User::where('level', 'admin')->count();
-        return view('anggota.dashboard',['foto'=>$fotos,'users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+        // $fotos = AnggotaModel::value('foto_anggota');
+        $latest_angsuran = AngsuranModel::where('nrp', Auth::user()->nrp)->orderBy('tanggal','desc')->first();
+        //dd($latest_angsuran);
+        // $tanggal = date('d-M-Y',$tgl_latest_angsuran =  strtotime($latest_angsuran));
+        $level = AnggotaModel::where('nrp', Auth::user()->nrp)->value('level');
+        $jabatan = Str::ucfirst(Str::lower(AnggotaModel::where('nrp', Auth::user()->nrp)->value('jabatan')));
+        $total_simpanan = SimpananModel::where('nrp', Auth::user()->nrp)->sum('jumlah');
+        $total_pinjaman = PinjamanModel::where('nrp', Auth::user()->nrp)->sum('jumlah');
+        $total_angsuran = AngsuranModel::where('nrp', Auth::user()->nrp)->sum('jumlah');
+        $sisa_angsuran = PinjamanModel::where('nrp', Auth::user()->nrp)->sum('jumlah')-AngsuranModel::where('nrp', Auth::user()->nrp)->sum('jumlah');
+        return view('anggota.dashboard',compact(['latest_angsuran','jabatan','level','total_simpanan','total_pinjaman','total_angsuran','sisa_angsuran']));
     }
 
     public function showPengajuanPinjaman(){
