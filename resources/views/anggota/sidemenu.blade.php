@@ -15,14 +15,14 @@
           </li>
         </ul>
       </li>
-      <li class="active"><a href="#"><i class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.dash.main">Histori</span></a>
+      {{-- <li class="active"><a href="#"><i class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.dash.main">Histori</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">Transaksi Simpanan</a>
           </li>
           <li><a class="menu-item" href="{{ route('pinjaman.pengajuan') }}" data-i18n="nav.dash.crypto">Transaksi  Pinjaman</a>
           </li>
         </ul>
-      </li>
+      </li> --}}
       <li class="active"><a href="{{ route('logout') }}"><i class="la la-external-link"></i><span class="menu-title" data-i18n="nav.scrumboard.main">Logout</span></a>
       </li>
     </ul>
