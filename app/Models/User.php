@@ -24,8 +24,7 @@ class User extends Authenticatable
     ];
 
     public function anggota(){
-        return $this->hasOne(AnggotaModel::class,'nrp','nrp');
-
+        return $this->hasOne(StokOpnameModel::class, 'nrp','nrp');
     }
 
     public function angsuran(){

@@ -91,7 +91,7 @@ class AngsuranController extends Controller
      * @param  \App\Models\AngsuranModel  $angsuran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AngsuranModel $angsuran)
+    public function update(Request $request, AnggotaModel $angsuran)
     {
         $request->validate([
             'no' => 'required',

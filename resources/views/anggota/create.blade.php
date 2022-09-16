@@ -37,16 +37,6 @@
                                 </fieldset>
                             </div>
                           </div>
-                          {{-- <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <fieldset>
-                                    <label>
-                                        <input type="checkbox" value="" id="status" name="status" checked>
-                                        Enable
-                                    </label>
-                                </fieldset>
-                            </div>
-                          </div> --}}
                         </div>
                         </div>
                         <div class="row">

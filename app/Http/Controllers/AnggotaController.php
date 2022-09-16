@@ -27,8 +27,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $anggota = AnggotaModel::all();
-        return view('admin.dataanggota',['anggotas' => $anggota ]);
+        $vanggota = AnggotaModel::all();
+        return view('anggota.index',compact('vanggota'));
 
     }
 
@@ -219,7 +219,7 @@ class AnggotaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AnggotaModel  $anggotaModel
+     * @param  \App\Models\AnggotaModel  $anggota
      * @return \Illuminate\Http\Response
      */
     public function show(AnggotaModel $anggota)
@@ -231,22 +231,24 @@ class AnggotaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AnggotaModel  $anggotaModel
+     * @param  \App\Models\AnggotaModel  $anggota
      * @return \Illuminate\Http\Response
      */
     public function edit(AnggotaModel $anggota)
     {
-        return view('anggota.edit', compact('anggota'));
+        $jabatan = JabatanModel::all();
+        $bagian = BagianModel::all();
+        return view('anggota.edit', compact(['anggota','jabatan','bagian']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AnggotaModel  $anggotaModel
+     * @param  \App\Models\AnggotaModel  $anggota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $anggotaModel)
+    public function update(Request $request, AnggotaModel $anggota)
     {
                 //  dd($request['id']);
                  $request->validate([
@@ -259,8 +261,8 @@ class AnggotaController extends Controller
                     'alamat' => 'required',
                 ]);
 
-                //dd($anggotaModel);
-                     AnggotaModel::where('id', $anggotaModel)->update([
+                //dd($anggota);
+                     AnggotaModel::where('id', $anggota)->update([
                         'nrp' => $request['nrp'],
                         'name' => $request['name'],
                         'telp' => $request['telp'],
@@ -275,7 +277,7 @@ class AnggotaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AnggotaModel  $anggotaModel
+     * @param  \App\Models\AnggotaModel  $anggota
      * @return \Illuminate\Http\Response
      */
     public function destroy(AnggotaModel $id)

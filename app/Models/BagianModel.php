@@ -13,7 +13,7 @@ class BagianModel extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'kode',
+        'kode_bagian',
         'nama_bagian',
     ];
 

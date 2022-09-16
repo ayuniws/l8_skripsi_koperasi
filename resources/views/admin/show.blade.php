@@ -25,9 +25,10 @@
               </div>
             </div>
             <div class="list-group list-group-flush">
-              <div class="list-group-item"><i class="la la-briefcase"></i>Divisi TI</div>
+              {{-- <div class="list-group-item"><i class="la la-briefcase"></i> {{ ucfirst($pengguna->user->bagian) }}</div>
+              <div class="list-group-item"><i class="la la-briefcase"></i> {{ ucfirst($pengguna->user->Jabatan) }}</div> --}}
               <div class="list-group-item"><i class="ft-mail"></i> {{ $pengguna->email }}</div>
-              <div class="list-group-item"><i class="ft-check-square"></i>{{ ucfirst($pengguna->level) }}</div>
+              <div class="list-group-item"><i class="ft-check-square"></i> {{ ucfirst($pengguna->level) }}</div>
               <div class="list-group-item"> <i class="ft-message-square"></i> {{ $pengguna->status }}</div>
             </div>
             <div class="form-actions left">

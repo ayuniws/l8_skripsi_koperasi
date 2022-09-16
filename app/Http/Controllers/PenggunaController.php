@@ -27,13 +27,13 @@ class PenggunaController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('admin.index',['users' => $user ]);
+        return view('admin.index',compact('user'));
     }
     public function dashboard()
     {
         // $total_pembayaran_masuk = AngsuranModel::sum('jumlah');
         $foto = AnggotaModel::value('foto_anggota');
-        $user = User::all();
+        $pengguna = User::all();
         $total_user = User::count();
         $total_active_user = User::where('status', 'enabled')->count();
         $total_inactive_user = User::where('status', 'disabled')->count();
@@ -46,7 +46,7 @@ class PenggunaController extends Controller
 
 
         return view('admin.dashboard',
-        compact(['foto','user','total_user','total_active_user',
+        compact(['foto','pengguna','total_user','total_active_user',
         'total_inactive_user' , 'total_admin',
         'total_pinjaman', 'total_simpanan',
         'total_selisih', 'total_peminjam']));
@@ -152,7 +152,7 @@ class PenggunaController extends Controller
                 'status' => $request['status'],
                 'password' => Hash::make($request['password'])
             ]);
-                return redirect()->route('pengguna.index');
+                return redirect()->route('admin.dashboard');
         }
         //return redirect()->route('pengguna.index')->with('Succes','Data Berhasil di Update');
     }

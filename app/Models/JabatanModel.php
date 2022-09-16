@@ -12,8 +12,14 @@ class JabatanModel extends Model
     protected $primary_key = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'kode',
+        'kode_jabatan',
         'nama_jabatan',
     ];
+
+    public function anggota(){
+        return $this->belongsTo(AnggotaModel::class,'kode_jabatan');
+
+    }
+
 
 }

@@ -34,7 +34,7 @@ Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 // Admin
-Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
+// Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
 Route::get('/admin/dashboard', [App\Http\Controllers\PenggunaController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/admin/list-pengguna', [App\Http\Controllers\PenggunaController::class, 'index'])->name('pengguna.index');
 Route::get('/admin/create-pengguna', [App\Http\Controllers\PenggunaController::class, 'create'])->name('pengguna.create');
@@ -44,9 +44,11 @@ Route::get('/pengguna/{pengguna}/edit', [App\Http\Controllers\PenggunaController
 Route::match(['put', 'patch'],'/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'update'])->name('pengguna.update');
 Route::post('/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'destroy'])->name('pengguna.destroy');
 Route::get('/pengguna/{pengguna}', [App\Http\Controllers\PenggunaController::class, 'show'])->name('pengguna.show');
+
  //anggota
+// Route::resource('anggota',AnggotaController::class);
 Route::get('/anggota/dashboard', [App\Http\Controllers\AnggotaController::class, 'dashboard'])->name('anggota.dashboard');
-Route::get('/anggota/index', [App\Http\Controllers\AnggotaController::class, 'index'])->name('anggota.index');
+Route::get('/data-anggota', [App\Http\Controllers\AnggotaController::class, 'index'])->name('anggota.index');
 Route::get('/anggota/create', [App\Http\Controllers\AnggotaController::class, 'create'])->name('anggota.create');
 Route::post('/anggota/store', [App\Http\Controllers\AnggotaController::class, 'store'])->name('anggota.store');
 Route::get('/anggota/{anggota}/edit', [App\Http\Controllers\AnggotaController::class, 'edit'])->name('anggota.edit');
@@ -82,8 +84,6 @@ Route::get('/pengajuan/{pinjaman}/approve', [App\Http\Controllers\PinjamanContro
 Route::get('/pengajuan/{pinjaman}/reject', [App\Http\Controllers\PinjamanController::class, 'reject'])->name('pengajuan.reject');
 Route::get('/form-pengajuan', [App\Http\Controllers\PinjamanController::class, 'getFormPengajuan'])->name('form-pengajuan');
 
-
-
-//Route::resource('sisw',SiswaControllers::class);
+Route::resource('sisw',SiswaControllers::class);
 
 

@@ -221,18 +221,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($user as $data )
+                        @foreach ($pengguna as $data )
                           <tr>
                             <td>{{ $data->nrp }}</td>
-                            <td>{{ $data->anggota->nama_anggota }} </td>
+                            <td>{{ $data->name }} </td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->level }}</td>
                             <td>{{ $data->status }}</td>
                             <td class="text-center">
                               <form action="{{ route('pengguna.destroy',$data->id) }}" method="POST">
                                 @csrf
-                                {{-- @method('DELETE') --}}
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.show',$data->id) }}"><i class="la la-search"></i></a>
+                                @method('DELETE')
+                                <a class="btn btn-info btn-sm" href="{{ route('pengguna.show', $data->id) }}"><i class="la la-search"></i></a>
                                   <a class="btn btn-primary btn-sm" href="{{ route('pengguna.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                   <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
                               </form>
