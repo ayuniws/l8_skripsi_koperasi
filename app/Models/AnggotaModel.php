@@ -22,8 +22,8 @@ class AnggotaModel extends Model
         'jenis_kelamin',
         'no_telepon',
         'email',
-        'id_jabatan',
-        'id_bagian',
+        'jabatan',
+        'bagian',
         'level',
         'foto_anggota'
     ];

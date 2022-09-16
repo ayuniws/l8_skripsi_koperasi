@@ -24,7 +24,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                    <form method="POST" action="" class="form" novalidate>@csrf
+                    <form method="POST" action="{{ route('anggota.update',$anggota->id) }}" class="form" novalidate>@csrf
                         @method('PUT')
                             <div class="row icheck_minimal skin">
                               <div class="col-md-6 col-sm-12">

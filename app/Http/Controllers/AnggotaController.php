@@ -200,7 +200,6 @@ class AnggotaController extends Controller
                     'level' => $request['level'],
                     'jabatan' => $request['jabatan'],
                     'bagian' => $request['bagian'],
-                    'status' => 'disabled',
                     'alamat_anggota' => $request['alamat_anggota'],
                 ]);
                 User::create([
@@ -253,25 +252,42 @@ class AnggotaController extends Controller
                 //  dd($request['id']);
                  $request->validate([
                     'nrp' => 'required',
-                    'name' => 'required',
-                    'telp' => 'required',
+                    'nama_anggota' => 'required',
+                    'alamat_anggota' => 'required',
+                    'tgl_lahir' => 'required',
+                    'tempat_lahir' => 'required',
+                    'no_telepon' => 'required',
                     'email' => 'required',
-                    'kelamin' => 'required',
+                    'jenis_kelamin' => 'required',
                     'level' => 'required',
-                    'alamat' => 'required',
-                ]);
+                    'bagian' => 'required',
+                    'jabatan' => 'required',
+                 ]);
 
                 //dd($anggota);
-                     AnggotaModel::where('id', $anggota)->update([
+                     AnggotaModel::where('id', $anggota->id)->update([
                         'nrp' => $request['nrp'],
-                        'name' => $request['name'],
-                        'telp' => $request['telp'],
+                        'nama_anggota' => $request['nama_anggota'],
+                        'no_telepon' => $request['no_telepon'],
+                        'tgl_lahir' => $request['tgl_lahir'],
+                        'tempat_lahir' => $request['tempat_lahir'],
                         'email' => $request['email'],
-                        'kelamin' => $request['kelamin'],
+                        'jenis_kelamin' => $request['jenis_kelamin'],
                         'level' => $request['level'],
-                        'alamat' => $request['alamat'],
+                        'jabatan' => $request['jabatan'],
+                        'bagian' => $request['bagian'],
+                        'alamat_anggota' => $request['alamat_anggota'],
+                     ]);
+                    return redirect()->route('anggota.index');
+
+                    User::where('nrp', $anggota->nrp)->update([
+                        'name' => $request['nama_anggota'],
+                        'email' => $request['email'],
+                        'level' => $request['level'],
+                        'status' => $request['status'],
                         ]);
                     return redirect()->route('anggota.index');
+
     }
 
     /**
