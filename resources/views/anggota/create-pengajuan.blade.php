@@ -18,7 +18,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Transaksi Pinjaman</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Transaksi Pengajuan Pinjaman</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -37,6 +37,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">No</label>
+                              <input type="hidden" id="nrp"  name="nrp" value="{{ Auth::user()->nrp }}" readonly>
                               <input type="text" id="no" class="form-control" placeholder="No Transaksi" name="no" value="{{ $no }}" readonly>
                             </div>
                           </div>
@@ -50,12 +51,8 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">Anggota</label>
-                              <select id="nrp" name="nrp" class="form-control">
-                                @foreach($anggota as $data)
-                                <option value="{{$data->nrp}}">{{$data->nama_anggota}}</option>
-                                @endforeach
-                              </select>
+                              <label for="projectinput1">Jumlah Angsuran (Bulan)</label>
+                              <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -65,21 +62,11 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput1">Jumlah Angsuran (Bulan)</label>
-                              <input type="text" id="angsuran" class="form-control" placeholder="Angsuran" name="angsuran">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                               <label for="projectinput1">Keterangan</label>
-                               <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
-                            </div>
-                          </div>
-                            </div>
-                      <div class="form-actions right">
+                        <div class="form-group">
+                            <label for="projectinput1">Keterangan</label>
+                            <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
+                        </div>
+                        <div class="form-actions right">
                         <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                         <button type="submit" class="btn btn-primary btn-min-width">
                           Save

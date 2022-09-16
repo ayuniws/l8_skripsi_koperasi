@@ -17,8 +17,17 @@ class PinjamanController extends Controller
      */
     public function index()
     {
-        $pinjaman = PinjamanModel::all();
+        if(Auth::user()->level == 'admin' || Auth::user()->level == 'ketua'){
+            $pinjaman = PinjamanModel::all();
+        }elseif(Auth::user()->level == 'anggota'){
+            $pinjaman = PinjamanModel::where('nrp',Auth::user()->nrp)->get();
+        }
         return view('pinjaman.index',compact('pinjaman'));
+    }
+
+    public function getFormPengajuan(){
+        $no = AutoNumber::getPinjamanAutoNo();
+        return view('anggota.create-pengajuan',compact(['no']));
     }
 
     public function approve(PinjamanModel $pinjaman)
@@ -72,6 +81,7 @@ class PinjamanController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request['nrp']);
         $request->validate([
             'no' => 'required',
             'tanggal' => 'required',

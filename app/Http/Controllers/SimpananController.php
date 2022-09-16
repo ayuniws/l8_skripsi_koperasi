@@ -19,6 +19,11 @@ class SimpananController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->level == 'admin' || Auth::user()->level == 'ketua'){
+            $simpanan = SimpananModel::all();
+        }elseif(Auth::user()->level == 'anggota'){
+            $simpanan = SimpananModel::where('nrp',Auth::user()->nrp)->get();
+        }
         $simpanan = SimpananModel::all();
         return view('simpanan.index',compact('simpanan'));
     }

@@ -80,6 +80,7 @@ Route::get('pinjaman.pengajuan', [App\Http\Controllers\PinjamanController::class
 Route::post('/pinjaman/{id}', [App\Http\Controllers\PinjamanController::class, 'destroy'])->name('pinjaman.proses');
 Route::get('/pengajuan/{pinjaman}/approve', [App\Http\Controllers\PinjamanController::class, 'approve'])->name('pengajuan.approve');
 Route::get('/pengajuan/{pinjaman}/reject', [App\Http\Controllers\PinjamanController::class, 'reject'])->name('pengajuan.reject');
+Route::get('/form-pengajuan', [App\Http\Controllers\PinjamanController::class, 'getFormPengajuan'])->name('form-pengajuan');
 
 
 
