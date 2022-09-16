@@ -88,7 +88,7 @@
                                   <select id="jabatan" name="jabatan" class="form-control">
                                     <option value="{{$anggota->jabatan}}">{{$anggota->jabatan}}</option>
                                     @foreach($jabatan as $data)
-                                    <option value="{{$data->jabatan}}">{{$data->bagian}}</option>
+                                    <option value="{{$data->nama_jabatan}}">{{$data->nama_jabatan}}</option>
                                     @endforeach
                                   </select>
                                 </div>

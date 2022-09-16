@@ -23,5 +23,9 @@ class SimpananModel extends Model
     public function anggota(){
         return $this->belongsTo(AnggotaModel::class,'nrp','nrp');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'nrp','nrp');
+    }
+
 
 }

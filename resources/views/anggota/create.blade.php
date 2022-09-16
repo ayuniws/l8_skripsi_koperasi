@@ -87,7 +87,7 @@
                               <label for="projectinput1">Jabatan</label>
                               <select id="jabatan" name="jabatan" class="form-control">
                                 @foreach($jabatan as $data)
-                                <option value="{{$data->kode_jabatan}}">{{$data->nama_jabatan}}</option>
+                                <option value="{{$data->nama_jabatan}}">{{$data->nama_jabatan}}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -97,7 +97,7 @@
                               <label for="projectinput2">Bagian</label>
                               <select id="bagian" name="bagian" class="form-control">
                                 @foreach($bagian as $data)
-                                <option value="{{$data->kode_bagian}}">{{$data->nama_bagian}}</option>
+                                <option value="{{$data->nama_bagian}}">{{$data->nama_bagian}}</option>
                                 @endforeach
                               </select>
                             </div>

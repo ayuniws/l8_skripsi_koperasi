@@ -22,27 +22,34 @@ class AnggotaModel extends Model
         'jenis_kelamin',
         'no_telepon',
         'email',
-        'jabatan',
-        'bagian',
+        'id_jabatan',
+        'id_bagian',
         'level',
         'foto_anggota'
     ];
-
-    public function user()
-    {
-    	return $this->belongsTo(User::class,'nrp','nrp');
-    }
 
     public function angsuran(){
         return $this->hasMany(AngsuranModel::class,'nrp','nrp');
 
     }
+
     public function pinjaman(){
         return $this->hasMany(PinjamanModel::class,'nrp','nrp');
 
     }
     public function simpanan(){
         return $this->hasMany(SimpananModel::class,'nrp','nrp');
+
+    }
+
+    // public function jabatan(){
+    //     return $this->belongsTo(JabatanModel::class,'id');
+    // }
+    // public function bagian(){
+    //     return $this->belongsTo(BagianModel::class,'id');
+    // }
+    public function user(){
+        return $this->belongsTo(User::class,'nrp','nrp');
 
     }
 

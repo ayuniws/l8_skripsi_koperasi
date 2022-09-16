@@ -28,4 +28,9 @@ class PinjamanModel extends Model
         return $this->belongsTo(AnggotaModel::class,'nrp','nrp');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class,'nrp','nrp');
+    }
+
+
 }

@@ -11,11 +11,10 @@ class BagianModel extends Model
     protected $table = 'tbl_m_bagian';
     protected $primary_key = 'id';
     public $timestamps = false;
-
     protected $fillable = [
-        'kode_bagian',
         'nama_bagian',
     ];
-
-
+    // public function anggota(){
+    //     return $this->hasMany(AnggotaModel::class,'id_jabatan');
+    // }
 }

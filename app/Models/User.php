@@ -23,12 +23,25 @@ class User extends Authenticatable
         'password',
     ];
 
+    // public function anggota(){
+    //     return $this->hasOne(AnggotaModel::class, 'nrp','nrp');
+    // }
+
     public function anggota(){
-        return $this->hasOne(StokOpnameModel::class, 'nrp','nrp');
+        return $this->hasOne(AnggotaModel::class, 'nrp','nrp');
     }
 
     public function angsuran(){
-        return $this->hasOne(AngsuranModel::class,'nrp','nrp');
+        return $this->hasMany(AngsuranModel::class,'nrp','nrp');
+
+    }
+
+    public function pinjaman(){
+        return $this->hasMany(PinjamanModel::class,'nrp','nrp');
+
+    }
+    public function simpanan(){
+        return $this->hasMany(SimpananModel::class,'nrp','nrp');
 
     }
 
