@@ -59,7 +59,7 @@
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
-                              <td>{{ $data->nrp }}</td>
+                              <td>{{ $data->anggota->nama_anggota }}</td>
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td>{{ $data->admin }}</td>
