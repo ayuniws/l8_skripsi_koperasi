@@ -67,6 +67,9 @@ Route::get('/ketua/pengajuan-diajukan', [App\Http\Controllers\AnggotaController:
 Route::get('/laporan/laporan-angsuran', [App\Http\Controllers\LaporanController::class, 'laporanAngsuran'])->name('laporan.angsuran');
 Route::get('/laporan/laporan-pinjaman', [App\Http\Controllers\LaporanController::class, 'laporanPinjaman'])->name('laporan.pinjaman');
 Route::get('/laporan/laporan-simpanan', [App\Http\Controllers\LaporanController::class, 'laporanSimpanan'])->name('laporan.simpanan');
+// Route::get('/laporan/tampil-laporan', [App\Http\Controllers\LaporanController::class, 'showLaporan'])->name('laporan.tampil-laporan');
+Route::post('/laporan/tampil-laporan', [App\Http\Controllers\LaporanController::class, 'showLaporan'])->name('laporan.tampil-laporan');
+
 
 //Jabatan
 Route::resource('jabatan',JabatanController::class);

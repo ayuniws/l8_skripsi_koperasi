@@ -25,9 +25,9 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                    <form method="POST" action="" class="form" novalidate>@csrf
+                    <form method="POST" action="{{ route('laporan.tampil-laporan') }}" class="form" novalidate>@csrf
                       <div class="form-body">
-                        <input type="hidden" id="jenis_laporan"  name="jenis_laporan" value="tunggu_buffing">
+                        <input type="hidden" id="jenis_laporan"  name="jenis_laporan" value="angsuran">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">

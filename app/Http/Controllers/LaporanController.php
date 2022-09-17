@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AngsuranModel;
+use App\Models\PinjamanModel;
+use App\Models\SimpananModel;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -26,6 +29,28 @@ class LaporanController extends Controller
 
     public function laporanSimpanan(){
         return view('laporan.show-laporan-simpanan');
+    }
+
+    public function showLaporan(Request $request){
+        $dari_periode = date('Y-m-d',strtotime($request['dari_tanggal']));
+        $sd_periode = date('Y-m-d',strtotime($request['sd_tanggal']));
+        $jenis = $request['jenis_laporan'];
+        //$parameter_periode = [''];
+
+        if ($jenis == 'angsuran') {
+            $jenis_laporan = $jenis;
+            // echo $jenis_laporan;
+            $isi_laporan = AngsuranModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+        }elseif($jenis == 'pinjaman'){
+            $jenis_laporan = $jenis;
+            // echo $jenis_laporan;
+            $isi_laporan = PinjamanModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+        }elseif($jenis == 'simpanan'){
+            $jenis_laporan = $jenis;
+            $isi_laporan = SimpananModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+            // echo $jenis_laporan;
+        }
+        return view('laporan.laporan',compact('isi_laporan','jenis_laporan','dari_periode','sd_periode'));
     }
 
     public function index()
