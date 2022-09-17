@@ -5,6 +5,8 @@
         @include('admin.sidemenu')
     @elseif (Auth::user()->level == 'ketua')
         @include('ketua.sidemenu')
+    @elseif (Auth::user()->level == 'anggota')
+        @include('anggota.sidemenu')
     @endif
 @endsection
 @endsection

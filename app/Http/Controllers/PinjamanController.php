@@ -15,13 +15,18 @@ class PinjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function index()
     {
         if(Auth::user()->level == 'admin' || Auth::user()->level == 'ketua'){
-            $pinjaman = PinjamanModel::all();
+            $pinjaman = PinjamanModel::all()->sortByDesc('updated_at');
         }elseif(Auth::user()->level == 'anggota'){
             $kriteria = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Diterima'];
-            $pinjaman = PinjamanModel::where($kriteria)->get();
+            $pinjaman = PinjamanModel::where($kriteria)->get()->sortByDesc('updated_at');
         }
         return view('pinjaman.index',compact('pinjaman'));
     }
@@ -82,6 +87,10 @@ class PinjamanController extends Controller
      */
     public function store(Request $request)
     {
+        //cek ada pinjaman berjalan
+        $ada_pinjaman = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Diterima','status_pinjaman' => 'Pembayaran'];
+        $cek_pinjaman = PinjamanModel::where($ada_pinjaman)->count();
+        if ($cek_pinjaman > 0){
         //dd($request['nrp']);
         $request->validate([
             'no' => 'required',
@@ -104,6 +113,11 @@ class PinjamanController extends Controller
             'status_pinjaman' => 'Belum Pembayaran',
             ]);
         return redirect()->route('pinjaman.index');
+        }else{
+            // return redirect()->route('pinjaman.index')->with('error', 'Masih ada pinjaman yang belum lunas.');
+            redirect()->back()->with('alert','Pengajuan gagal, Masih ada pinjaman yang belum lunas!');
+        }
+
     }
 
     /**

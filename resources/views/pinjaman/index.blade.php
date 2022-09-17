@@ -40,6 +40,7 @@
                             <a class="btn btn-success" href="{{ route('pinjaman.create') }}">Add TR Pinjaman</a>
                         @endif
                     </div>
+                    @include('layouts.alert')
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>

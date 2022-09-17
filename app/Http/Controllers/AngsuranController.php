@@ -15,10 +15,21 @@ class AngsuranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function index()
     {
-        $angsuran = AngsuranModel::all();
-        return view('angsuran.index',compact('angsuran'));
+        if(Auth::user()->level === 'admin' || Auth::user()->level == 'ketua'){
+            $angsuran = AngsuranModel::all()->sortByDesc('updated_at');
+            return view('angsuran.index',compact('angsuran'));
+                // echo 'ketua atau admin '.Auth::user()->level;
+        }elseif(Auth::user()->level === 'anggota'){
+            $angsuran = AngsuranModel::where('nrp',Auth::user()->nrp)->get()->sortByDesc('updated_at');
+            return view('angsuran.index',compact('angsuran'));
+        }
     }
 
     /**

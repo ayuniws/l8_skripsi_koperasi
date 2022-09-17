@@ -17,14 +17,19 @@ class SimpananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function index()
     {
         if(Auth::user()->level === 'admin' || Auth::user()->level == 'ketua'){
-            $simpanan = SimpananModel::all();
+            $simpanan = SimpananModel::all()->sortByDesc('updated_at');
             return view('simpanan.index',compact('simpanan'));
             // echo 'ketua atau admin '.Auth::user()->level;
         }elseif(Auth::user()->level === 'anggota'){
-            $simpanan = SimpananModel::where('nrp',Auth::user()->nrp)->get();
+            $simpanan = SimpananModel::where('nrp',Auth::user()->nrp)->get()->sortByDesc('updated_at');
             return view('simpanan.index',compact('simpanan'));
             // echo 'Anggota '.Auth::user()->level.' - '.Auth::user()->nrp ;
         }

@@ -24,11 +24,11 @@
           <li class="dropdown dropdown-user nav-item">
             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
               {{-- <span class="mr-1"> --}}
-                <span class="user-name text-bold-400">{{ ucwords(Auth::user()->name) }}, [{{ Auth::user()->level }}]</span>
+                    <span class="user-name text-bold-400">{{ ucwords(Auth::user()->name) }}, [{{ Auth::user()->level }}]</span>
+                    <span class="avatar avatar-online">
+                        @if(empty(Auth::user()->anggota->foto)) <img src="{{ asset('modernadmin/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar">@else <img src="{{asset('/foto_anggota/'.Auth::user()->anggota->foto)}}" width="40px"/> @endif<i></i></span>
+                    </a>
               {{-- </span> --}}
-              <span class="avatar avatar-online">
-                @if(empty(Auth::user()->anggota->foto)) <img src="{{ asset('modernadmin/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar">@else <img src="{{asset('/foto_anggota/'.Auth::user()->anggota->foto)}}" width="40px"/> @endif<i></i></span>
-            </a>
             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
               {{-- <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
               <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>

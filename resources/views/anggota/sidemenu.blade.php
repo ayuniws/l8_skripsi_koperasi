@@ -13,6 +13,8 @@
           </li>
           <li><a class="menu-item" href="{{ route('form-pengajuan') }}" data-i18n="nav.dash.crypto">Pengajuan Pinjaman</a>
           </li>
+          <li><a class="menu-item" href="{{ route('angsuran.index') }}" data-i18n="nav.dash.crypto">Lihat Info Angsuran</a>
+          </li>
         </ul>
       </li>
       {{-- <li class="active"><a href="#"><i class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.dash.main">Histori</span></a>

@@ -216,7 +216,6 @@
                         <th>Jumlah</th>
                         <th>Angsuran Ke</th>
                         <th>Keterangan</th>
-                        <th>Admin</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -228,7 +227,6 @@
                           <td>{{ $data->jumlah }}</td>
                           <td>{{ $data->angsuran_ke }}</td>
                           <td>{{ $data->keterangan }}</td>
-                          <td>{{ $data->user->name }}</td>
                     </tr>
                     @endforeach
                     </tbody>
