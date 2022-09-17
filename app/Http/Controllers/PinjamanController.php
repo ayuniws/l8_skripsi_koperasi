@@ -23,10 +23,10 @@ class PinjamanController extends Controller
     public function index()
     {
         if(Auth::user()->level == 'admin' || Auth::user()->level == 'ketua'){
-            $pinjaman = PinjamanModel::all()->sortByDesc('updated_at');
+            $pinjaman = PinjamanModel::all()->sortByDesc('tanggal');
         }elseif(Auth::user()->level == 'anggota'){
             $kriteria = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Diterima'];
-            $pinjaman = PinjamanModel::where($kriteria)->get()->sortByDesc('updated_at');
+            $pinjaman = PinjamanModel::where($kriteria)->get()->sortByDesc('tanggal');
         }
         return view('pinjaman.index',compact('pinjaman'));
     }

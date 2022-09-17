@@ -70,9 +70,10 @@ class AnggotaController extends Controller
         $pinjaman_ditolak = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Ditolak'];
         $pinjaman_close = ['nrp' => Auth::user()->nrp, 'status_pinjaman' => 'Lunas'];
         $pinjaman_aktif = ['nrp' => Auth::user()->nrp, 'status_pinjaman' => 'Pembayaran'];
+
         // $fotos = AnggotaModel::value('foto_anggota');
         // $latest_angsuran = AngsuranModel::where('nrp', Auth::user()->nrp)->orderBy('tanggal','desc')->first();
-        $total_angsuran_month = number_format(AngsuranModel::whereMonth('tanggal',Carbon::now()->month)->sum('jumlah'), 2, '.', ',');
+        $total_angsuran_month = number_format(AngsuranModel::whereMonth('tanggal',Carbon::now()->month)->where('nrp',Auth::user()->nrp)->sum('jumlah'), 2, '.', ',');
         //dd($latest_angsuran);
         // $tanggal = date('d-M-Y',$tgl_latest_angsuran =  strtotime($latest_angsuran));
         $total_angsuran_today = AngsuranModel::where('tanggal',Carbon::now()->format('Y-m-d'))->sum('jumlah');
