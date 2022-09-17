@@ -90,7 +90,9 @@ class PinjamanController extends Controller
         //cek ada pinjaman berjalan
         $ada_pinjaman = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Diterima','status_pinjaman' => 'Pembayaran'];
         $cek_pinjaman = PinjamanModel::where($ada_pinjaman)->count();
-        if ($cek_pinjaman > 0){
+        //dd($cek_pinjaman);
+
+        if ((int)$cek_pinjaman < 1){
         //dd($request['nrp']);
         $request->validate([
             'no' => 'required',

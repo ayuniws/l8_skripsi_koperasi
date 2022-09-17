@@ -91,7 +91,8 @@ class AnggotaController extends Controller
 
   //  number_format( , 2, '.', ',');
     public function showPengajuanPinjaman(){
-        $list_pengajuan = PinjamanModel::where('status_pengajuan','diajukan')->get();
+        $kriteri_tampil = ['status_pengajuan' => 'diajukan', 'status_pinjaman' => 'Belum Pembayaran'];
+        $list_pengajuan = PinjamanModel::where($kriteri_tampil)->get();
         return view('ketua.daftar-pengajuan-pinjaman',compact('list_pengajuan'));
     }
 
