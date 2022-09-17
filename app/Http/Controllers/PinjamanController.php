@@ -115,7 +115,8 @@ class PinjamanController extends Controller
         return redirect()->route('pinjaman.index');
         }else{
             // return redirect()->route('pinjaman.index')->with('error', 'Masih ada pinjaman yang belum lunas.');
-            redirect()->back()->with('alert','Pengajuan gagal, Masih ada pinjaman yang belum lunas!');
+            //redirect()->back()->with('alert','Pengajuan gagal, Masih ada pinjaman yang belum lunas!');
+            return redirect()->back()->with('alert', 'Pengajuan gagal, Masih ada pinjaman yang belum lunas!');
         }
 
     }
