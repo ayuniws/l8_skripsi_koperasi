@@ -20,7 +20,8 @@ class PinjamanController extends Controller
         if(Auth::user()->level == 'admin' || Auth::user()->level == 'ketua'){
             $pinjaman = PinjamanModel::all();
         }elseif(Auth::user()->level == 'anggota'){
-            $pinjaman = PinjamanModel::where('nrp',Auth::user()->nrp)->get();
+            $kriteria = ['nrp' => Auth::user()->nrp, 'status_pengajuan' => 'Diterima'];
+            $pinjaman = PinjamanModel::where($kriteria)->get();
         }
         return view('pinjaman.index',compact('pinjaman'));
     }

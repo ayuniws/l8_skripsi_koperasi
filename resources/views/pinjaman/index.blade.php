@@ -49,7 +49,6 @@
                             <th>Jumlah</th>
                             <th>Angsuran</th>
                             <th>Keterangan</th>
-                            <th>Admin</th>
                             <th>Status Pengajuan</th>
                             <th>Status Pembayaran</th>
                             <th>Action</th>
@@ -60,11 +59,10 @@
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
-                              <td>{{ $data->nrp }}</td>
+                              <td>{{ $data->anggota->nama_anggota }}</td>
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->angsuran }}</td>
                               <td>{{ $data->keterangan }}</td>
-                              <td>{{ $data->admin }}</td>
                               <td>{{ $data->status_pengajuan}}</td>
                               <td>{{ $data->status_pinjaman}}</td>
                               <td class="text-center">

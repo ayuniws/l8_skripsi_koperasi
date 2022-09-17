@@ -32,13 +32,13 @@
             </div>
             <div class="list-group list-group-flush">
               <div class="list-group-item"><i class="ft-map"></i> {{ ucfirst($anggota->tempat_lahir).', '.$anggota->tgl_lahir }}</div>
-              <div class="list-group-item"><i class="la la-briefcase"></i> {{ $anggota->bagian->nama_bagian }}</div>
+              <div class="list-group-item"><i class="la la-briefcase"></i> {{ $anggota->bagian }}</div>
               <div class="list-group-item"> <i class="ft-map-pin"></i> {{ $anggota->alamat_anggota }}</div>
               <div class="list-group-item"><i class="la la-briefcase"></i> {{ $anggota->jenis_kelamin === 'L' ? 'Laki-Laki':'Perempuan' }}</div>
               <div class="list-group-item"><i class="ft-mail"></i> {{ $anggota->email }}</div>
               <div class="list-group-item"><i class="ft-phone"></i> {{ $anggota->no_telepon }}</div>
               <div class="list-group-item"><i class="ft-user-plus"></i> {{ ucfirst($anggota->level) }}</div>
-              <div class="list-group-item"><i class="ft-user-check"></i> {{ ucfirst($anggota->jabatan->nama_jabatan) }}</div>
+              <div class="list-group-item"><i class="ft-user-check"></i> {{ ucfirst($anggota->jabatan) }}</div>
             </div>
             <div class="form-actions left">
                 <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>

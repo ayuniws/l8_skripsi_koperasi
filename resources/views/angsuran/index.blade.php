@@ -47,8 +47,9 @@
                             <th>Jumlah</th>
                             <th>Angsuran Ke</th>
                             <th>Keterangan</th>
-                            <th>Admin</th>
+                            @if (Auth::user()->level=='admin')
                             <th>Action</th>
+                            @endif
                           </tr>
                         </thead>
                         <tbody>
@@ -60,7 +61,7 @@
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->angsuran_ke }}</td>
                               <td>{{ $data->keterangan }}</td>
-                              <td>{{ $data->user->name }}</td>
+                              @if (Auth::user()->level=='admin')
                               <td class="text-center">
                                 <form action="{{ route('angsuran.destroy',$data->id) }}" method="POST">
                                     <a class="btn btn-primary btn-sm" href="{{ route('angsuran.edit',$data->id) }}"><i class="la la-edit"></i></a>
@@ -69,6 +70,7 @@
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>

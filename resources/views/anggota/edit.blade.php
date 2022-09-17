@@ -26,19 +26,6 @@
                     <div class="card-text">
                     <form method="POST" action="{{ route('anggota.update',$anggota->id) }}" class="form" novalidate>@csrf
                         @method('PUT')
-                            <div class="row icheck_minimal skin">
-                              <div class="col-md-6 col-sm-12">
-                                <div class="form-group">
-                                    <fieldset>
-                                        <label>
-                                            <input type="checkbox" value="" id="add_login" name="add_login" checked>
-                                            Buat Akun Login
-                                        </label>
-                                    </fieldset>
-                                </div>
-                              </div>
-                            </div>
-                            </div>
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -126,21 +113,15 @@
                                   </select></div>
                               </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                <div class="form-group">
                                       <label for="projectinput2">Foto Anggota</label>
                                       @if(empty($anggota->foto_anggota)) <img src=""/> @else <img src="{{asset('/foto_anggota/'.$anggota->foto_anggota)}}" width="40px"/> @endif
                                       <input type="file" id="foto_anggota" class="form-control" placeholder="Foto Anggota" name="foto_anggota">
-                                    </div>
-                                  </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                   </div>
+                                <div class="form-group">
                                     <label for="companyName">Alamat</label>
                                     <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat">{{ $anggota->alamat_anggota }}</textarea>
-                                    </div>
                                 </div>
-                            </div>
                           </div>
                           <div class="form-actions right">
                             <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>

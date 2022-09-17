@@ -49,7 +49,7 @@ class AnggotaModel extends Model
     //     return $this->belongsTo(BagianModel::class,'id');
     // }
     public function user(){
-        return $this->belongsTo(User::class,'nrp','nrp');
+        return $this->hasOne(User::class,'nrp','nrp');
 
     }
 

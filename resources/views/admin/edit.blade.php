@@ -53,13 +53,14 @@
                             <div class="form-group">
                               <label for="level">Level</label>
                               <select id="level" name="level" class="form-control">
-                                <option value="{{ $pengguna->level }}">
-                                    @if($pengguna->level == 'admin') Admin </option>
-                                    <option value="user">User Biasa</option>
-                                    @elseif ($pengguna->level == 'user')User Biasa </option>
-                                    <option value="admin">Admin</option>
-                                    @endif
-                                </select>
+                                @if($pengguna->level == 'anggota')
+                                <option value="{{ $pengguna->level }}">{{ ucfirst($pengguna->level) }} </option>
+                                <option value="admin">Admin</option>
+                                @elseif($pengguna->level == 'admin')
+                                <option value="{{ $pengguna->level }}">{{ ucfirst($pengguna->level) }} </option>
+                                <option value="anggota">Anggota</option>
+                                @endif
+                              </select>
                             </div>
                           </div>
                         </div>

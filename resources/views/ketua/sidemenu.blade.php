@@ -13,6 +13,8 @@
           </li>
           <li class="menu-item"><a class="menu-item" href="{{ route('pinjaman.index') }}" data-i18n="nav.dash.ecommerce">Transaksi Pinjaman</a>
           </li>
+          <li class="menu-item"><a class="menu-item" href="{{ route('angsuran.index') }}" data-i18n="nav.dash.ecommerce">Transaksi Angsuran</a>
+          </li>
         </ul>
       </li>
       <li class="active"><a href="{{ route('pinjaman.pengajuan-diajukan') }}"><i class="la la-pencil-square"></i><span class="menu-title" data-i18n="nav.scrumboard.main">Approve Pengajuan</span></a>
