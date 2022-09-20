@@ -113,16 +113,25 @@
                                   </select></div>
                               </div>
                             </div>
+                            <div class="row">
+                              <div class="col-md-6">
                                 <div class="form-group">
                                       <label for="projectinput2">Foto Anggota</label>
                                       @if(empty($anggota->foto_anggota)) <img src=""/> @else <img src="{{asset('/foto_anggota/'.$anggota->foto_anggota)}}" width="40px"/> @endif
                                       <input type="file" id="foto_anggota" class="form-control" placeholder="Foto Anggota" name="foto_anggota">
-                                   </div>
-                                <div class="form-group">
-                                    <label for="companyName">Alamat</label>
-                                    <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat">{{ $anggota->alamat_anggota }}</textarea>
                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="companyName">No Rekening</label>
+                                    <input type="text" id="no_rekening" class="form-control" placeholder="Nomor Rekening" name="no_rekening" value="{{ $anggota->no_rekening }}">
+                                </div>
+                              </div>
                           </div>
+                          <div class="form-group">
+                            <label for="companyName">Alamat</label>
+                            <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat">{{ $anggota->alamat_anggota }}</textarea>
+                        </div>
                           <div class="form-actions right">
                             <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                             <button type="submit" class="btn btn-primary btn-min-width">

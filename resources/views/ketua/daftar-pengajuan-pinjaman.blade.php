@@ -52,8 +52,8 @@
                             <tr>
                               <td>{{ $data->no }}</td>
                               <td>{{ $data->tanggal }}</td>
-                              <td>{{ $data->nrp }}</td>
-                              <td>{{ $data->jumlah }}</td>
+                              <td>{{ $data->anggota->nama_anggota }}</td>
+                              <td>{{ number_format($data->jumlah, 2, '.', ',') }}</td>
                               <td>{{ $data->angsuran }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td class="text-center">

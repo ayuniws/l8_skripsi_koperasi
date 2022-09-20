@@ -6,6 +6,7 @@ use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
 use App\Helpers\AutoNumber;
 use App\Models\AnggotaModel;
+use App\Models\SimpananModel;
 use Illuminate\Support\Facades\Auth;
 
 class PinjamanController extends Controller
@@ -92,7 +93,11 @@ class PinjamanController extends Controller
         $cek_pinjaman = PinjamanModel::where($ada_pinjaman)->count();
         //dd($cek_pinjaman);
 
-        if ((int)$cek_pinjaman < 1){
+        //cek besar simpanan
+        $jumlah =  $request['jumlah'];
+        $simpanan = SimpananModel::where('nrp',Auth::user()->nrp)->sum('jumlah')->get();
+
+        if (((int)$cek_pinjaman < 1) && ($jumlah >= $simpanan) ){
         //dd($request['nrp']);
         $request->validate([
             'no' => 'required',

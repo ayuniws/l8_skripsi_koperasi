@@ -131,11 +131,15 @@
                               </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                <label for="companyName">Alamat</label>
-                                <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat"></textarea>
-                                </div>
+                                <label for="companyName">No Rekening</label>
+                                <input type="text" id="no_rekening" class="form-control" placeholder="No Rekening" name="no_rekening">
+                            </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="companyName">Alamat</label>
+                            <textarea id="alamat_anggota" rows="5" class="form-control" name="alamat_anggota" placeholder="Alamat"></textarea>
+                            </div>
                       </div>
                       <div class="form-actions right">
                         <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>                        {{-- </button> --}}

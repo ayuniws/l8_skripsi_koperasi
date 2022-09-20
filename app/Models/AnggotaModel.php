@@ -25,7 +25,8 @@ class AnggotaModel extends Model
         'jabatan',
         'bagian',
         'level',
-        'foto_anggota'
+        'foto_anggota',
+        'no_rekening',
     ];
 
     public function angsuran(){

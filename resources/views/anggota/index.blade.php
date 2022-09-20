@@ -44,6 +44,7 @@
                             <th>Kelamin</th>
                             <th>Jabatan</th>
                             <th>Bagian</th>
+                            <th>Rekening</th>
                             <th>Foto</th>
                             <th>Action</th>
                           </tr>
@@ -56,6 +57,7 @@
                               <td>{{ ucwords($data->jenis_kelamin) }}</td>
                               <td>{{ ucwords($data->jabatan) }}</td>
                               <td>{{ ucwords($data->bagian) }}</td>
+                              <td>{{ ucwords($data->no_rekening) }}</td>
                               <td>@if(empty($data->foto_anggota)) <img src=""/> @else <img src="{{asset('/foto_anggota/'.$data->foto_anggota)}}" width="40px"/> @endif
                               </td>
                               <td class="text-center">
