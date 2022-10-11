@@ -40,7 +40,7 @@
                     <div class="float-left">
                       <a class="btn btn-success" href="{{ route('angsuran.create') }}">Add TR Angsuran</a>
                   </div>
-                      <table class="table table-striped table-bordered dataex-html5-export-print">
+                      <table class="table display nowrap table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
                             <th>No</th>

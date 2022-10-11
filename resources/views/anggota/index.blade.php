@@ -36,7 +36,8 @@
                     <div class="float-left">
                       <a class="btn btn-success" href="{{ route('anggota.create') }}">Add Anggota</a>
                   </div>
-                      <table class="table table-striped table-bordered dataex-html5-export-print">
+                    <div class="table-responsive">
+                      <table class="table display nowrap table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
                             <th>NRP</th>
@@ -46,6 +47,7 @@
                             <th>Bagian</th>
                             <th>Rekening</th>
                             <th>Foto</th>
+                            <th>Alamat</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -60,6 +62,7 @@
                               <td>{{ ucwords($data->no_rekening) }}</td>
                               <td>@if(empty($data->foto_anggota)) <img src=""/> @else <img src="{{asset('/foto_anggota/'.$data->foto_anggota)}}" width="40px"/> @endif
                               </td>
+                              <td>{{ ucwords($data->alamat_anggota) }}</td>
                               <td class="text-center">
                                 <form action="{{ route('anggota.destroy',$data->id) }}" method="POST">
                                   <a class="btn btn-info btn-sm" href="{{ route('anggota.show',$data->id) }}"><i class="la la-search"></i></a>
@@ -75,6 +78,7 @@
                         @endforeach
                         </tbody>
                       </table>
+                    </div>
                   </div>
                 </div>
               </div>
